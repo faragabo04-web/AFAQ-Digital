@@ -11,12 +11,20 @@ export default function Logo({ variant = "header", className = "" }) {
     icon: "/afaq-digital-icon.png"
   };
 
+  const dims = {
+    header: { width: 218, height: 68 },
+    main:   { width: 600, height: 595 },
+    icon:   { width: 34,  height: 34  },
+  };
+
   if (!failed) {
     return (
       <img
         className={`logo-img logo-img--${variant} ${className}`}
         src={sources[variant]}
         alt="AFAQ Digital"
+        width={dims[variant].width}
+        height={dims[variant].height}
         onError={() => setFailed(true)}
       />
     );

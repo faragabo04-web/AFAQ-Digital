@@ -599,6 +599,10 @@ p {
   inset: 0;
   pointer-events: none;
   background-image: url("/images/lifestyle-5.jpg");
+  background-image: image-set(
+    url("/images/lifestyle-5.webp") type("image/webp"),
+    url("/images/lifestyle-5.jpg") type("image/jpeg")
+  );
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -839,6 +843,7 @@ p {
     radial-gradient(circle at 50% 50%, rgba(7, 16, 28, 0.36), rgba(4, 8, 17, 0.88) 74%);
   box-shadow: var(--shadow), 0 0 160px rgba(62, 207, 255, 0.18), 0 0 110px rgba(214, 182, 111, 0.15);
   overflow: hidden;
+  transform: translateZ(0);
 }
 
 [dir="rtl"] .hero-visual {
@@ -4671,9 +4676,14 @@ textarea:focus {
   }
 
   .hero::before {
+    background-image: url("/images/lifestyle-5-mobile.jpg");
+    background-image: image-set(
+      url("/images/lifestyle-5-mobile.webp") type("image/webp"),
+      url("/images/lifestyle-5-mobile.jpg") type("image/jpeg")
+    );
     background-position: center top;
     filter: saturate(1.08) contrast(1.04) brightness(0.76);
-    opacity: 0.62;
+    opacity: 0.72;
   }
 
   [data-theme="light"] .hero {
@@ -4774,7 +4784,7 @@ textarea:focus {
   }
 
   h1 {
-    font-size: clamp(2.65rem, 13vw, 4.45rem);
+    font-size: clamp(1.85rem, 8vw, 2.8rem);
   }
 
   [dir="rtl"] .hero-copy h1 {
@@ -4817,7 +4827,7 @@ textarea:focus {
   }
 
   .hero-visual {
-    width: min(500px, 100%);
+    width: min(400px, 88vw);
     min-height: auto;
   }
 
@@ -5023,47 +5033,19 @@ textarea:focus {
     justify-content: flex-start;
   }
 
-  .hero-visual {
-    width: min(410px, 100%);
-    min-height: auto;
-  }
-
-  .hero-ui-panel--analytics,
-  .hero-ui-panel--ai {
+  /* Hide the orbital on portrait phones — the Dubai photo handles the atmosphere */
+  .hero-visual,
+  [dir="rtl"] .hero-visual {
     display: none;
   }
 
-  .hero-workflow-map {
-    inset: 24% 16%;
-    opacity: 0.56;
+  .hero {
+    padding-bottom: 56px;
   }
 
   [dir="rtl"] .hero-copy h1 {
-    font-size: clamp(2.2rem, 9.4vw, 3.2rem);
-    line-height: 1.26;
-  }
-
-  [dir="rtl"] .hero-visual {
-    width: min(390px, 100%);
-  }
-
-  .orbit-track {
-    animation-duration: 30s;
-  }
-
-  .orbit-chip {
-    font-size: 0.65rem;
-    max-width: 132px;
-  }
-
-  [dir="rtl"] .orbit-chip {
-    max-width: 124px;
-    font-size: 0.62rem;
-  }
-
-  .orbit-chip--3,
-  .orbit-chip--4 {
-    display: none;
+    font-size: clamp(1.75rem, 7.5vw, 2.6rem);
+    line-height: 1.3;
   }
 
   .assistant-bubble-label {
@@ -5336,6 +5318,10 @@ main > .section + .section {
 
 [data-theme="light"] .hero::before {
   background-image: url("/images/lifestyle-5.jpg");
+  background-image: image-set(
+    url("/images/lifestyle-5.webp") type("image/webp"),
+    url("/images/lifestyle-5.jpg") type("image/jpeg")
+  );
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
