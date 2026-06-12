@@ -44,7 +44,7 @@ export default function Contact({ t }) {
       return;
     }
 
-    // TODO: Connect this form to the final Google Form or backend when GOOGLE_FORM_URL is available.
+    window.open(WEBSITE_REQUEST_FORM_URL, "_blank", "noopener,noreferrer");
     setStatus(t.contact.success);
   };
 
