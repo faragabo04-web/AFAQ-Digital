@@ -4,9 +4,12 @@ export const PHONE_DISPLAY = "+971 50 413 1228";
 export const PHONE_DISPLAY_LOCAL = "050 413 1228";
 export const GOOGLE_FORM_URL = "TODO_ADD_GOOGLE_FORM_URL";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/ahmed-farouk-01b279286/";
+export const FACEBOOK_URL = "https://www.facebook.com/helloafaqdigital";
+export const INSTAGRAM_URL = "https://www.instagram.com/helloafaqdigital/";
+export const EMAIL = "helloafaqdigital@gmail.com";
 
 export const WHATSAPP_MESSAGE =
-  "Hello AFAQ Digital, I'd like to ask about your services.";
+  "Hello Afaq Digital, I'd like to ask about your services.";
 
 export const whatsappHref = `${WHATSAPP_URL}?text=${encodeURIComponent(WHATSAPP_MESSAGE).replace(/'/g, "%27")}`;
 

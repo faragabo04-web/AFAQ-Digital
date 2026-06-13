@@ -1,4 +1,4 @@
-import { LINKEDIN_URL, PHONE_DISPLAY, WHATSAPP_NUMBER, whatsappHref } from "../data/content.js";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, PHONE_DISPLAY, WHATSAPP_NUMBER, whatsappHref } from "../data/content.js";
 import Logo from "./Logo.jsx";
 
 const footerIds = ["home", "services", "work", "process", "faq", "contact"];
@@ -47,10 +47,8 @@ export default function Footer({ t }) {
     { icon: "whatsapp", label: t.footer.contact.whatsapp, value: phoneDisplay, href: whatsappHref },
     { icon: "phone", label: t.footer.contact.call, value: phoneDisplay, href: phoneHref },
     { icon: "linkedin", label: t.footer.contact.linkedin, value: "Ahmed Farouk", href: LINKEDIN_URL },
-    // TODO_ADD_INSTAGRAM_URL
-    { icon: "instagram", label: t.footer.contact.instagram, value: t.footer.contact.comingSoon, href: "#" },
-    // TODO_ADD_FACEBOOK_URL
-    { icon: "facebook", label: t.footer.contact.facebook, value: t.footer.contact.comingSoon, href: "#" }
+    { icon: "instagram", label: t.footer.contact.instagram, value: "@helloafaqdigital", href: INSTAGRAM_URL },
+    { icon: "facebook", label: t.footer.contact.facebook, value: "helloafaqdigital", href: FACEBOOK_URL }
   ];
   const socialItems = [contactItems[0], contactItems[1], contactItems[4], contactItems[3], contactItems[2]];
   const highlightService = (href) => {

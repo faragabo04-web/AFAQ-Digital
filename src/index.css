@@ -4673,6 +4673,28 @@ textarea:focus {
 
   .hero {
     background: #02050c;
+    overflow-x: hidden;
+  }
+
+  .hero-grid {
+    overflow: hidden;
+  }
+
+  .hero-copy {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero-copy .chip-row {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    max-width: 100%;
+  }
+
+  .hero-service-strip {
+    max-width: 100%;
   }
 
   .hero::before {
