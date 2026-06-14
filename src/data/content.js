@@ -127,12 +127,11 @@ export const content = {
         {
           title: "M&M’s Play Area",
           label: "Website Concept",
+          link: "https://faragabo04-web.github.io/MM-PLAYAREA-PREMIUM/",
           description:
             "Family-focused website concept with pricing, gallery, WhatsApp booking, Google Maps, and clear sections for parents.",
           tags: ["Kids Business", "Gallery", "Pricing", "Booking", "WhatsApp"],
-          button: "Coming Soon",
-          // TODO_ADD_MM_PLAYAREA_URL
-          todo: "TODO_ADD_MM_PLAYAREA_URL"
+          button: "View Project"
         },
         {
           title: "Beauty Pets",
@@ -497,11 +496,10 @@ export const content = {
         {
           title: "M&M’s Play Area",
           label: "نموذج موقع",
+          link: "https://faragabo04-web.github.io/MM-PLAYAREA-PREMIUM/",
           description: "نموذج موقع موجه للعائلات يعرض الأسعار، الصور، الحجز عبر واتساب، خرائط Google، ومعلومات واضحة للآباء.",
           tags: ["Kids Business", "Gallery", "Pricing", "Booking", "WhatsApp"],
-          button: "قريبًا",
-          // TODO_ADD_MM_PLAYAREA_URL
-          todo: "TODO_ADD_MM_PLAYAREA_URL"
+          button: "عرض المشروع"
         },
         {
           title: "Beauty Pets",
