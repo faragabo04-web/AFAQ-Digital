@@ -136,12 +136,11 @@ export const content = {
         {
           title: "Beauty Pets",
           label: "Website Concept",
+          link: "https://faragabo04-web.github.io/Beauty-Pets/",
           description:
             "Pet shop website concept for grooming, products, accessories, services, and easy customer contact.",
           tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
-          button: "Coming Soon",
-          // TODO_ADD_BEAUTY_PETS_URL
-          todo: "TODO_ADD_BEAUTY_PETS_URL"
+          button: "View Project"
         }
       ]
     },
@@ -504,11 +503,10 @@ export const content = {
         {
           title: "Beauty Pets",
           label: "نموذج موقع",
+          link: "https://faragabo04-web.github.io/Beauty-Pets/",
           description: "نموذج موقع لمحل حيوانات أليفة يعرض العناية، المنتجات، الإكسسوارات، الخدمات، وطرق تواصل سهلة.",
           tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
-          button: "قريبًا",
-          // TODO_ADD_BEAUTY_PETS_URL
-          todo: "TODO_ADD_BEAUTY_PETS_URL"
+          button: "عرض المشروع"
         }
       ]
     },
