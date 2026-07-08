@@ -141,6 +141,16 @@ export const content = {
             "Pet shop website concept for grooming, products, accessories, services, and easy customer contact.",
           tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
           button: "View Project"
+        },
+        {
+          title: "Muyed Portfolio Website",
+          label: "Live Project",
+          link: "https://www.muyedmohammed.xyz/",
+          description:
+            "A cinematic personal portfolio website built to showcase services, visual proof, and direct WhatsApp conversion through a premium mobile-first experience.",
+          impact: "Premium online presence with stronger trust, clear service presentation, and faster client conversion.",
+          tags: ["Portfolio", "Website", "Personal Brand", "WhatsApp", "Mobile-first"],
+          button: "View Live Project"
         }
       ]
     },
@@ -506,6 +516,16 @@ export const content = {
           link: "https://faragabo04-web.github.io/beauty-pets/",
           description: "نموذج موقع لمحل حيوانات أليفة يعرض العناية، المنتجات، الإكسسوارات، الخدمات، وطرق تواصل سهلة.",
           tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
+          button: "عرض المشروع"
+        },
+        {
+          title: "موقع بورتفوليو مؤيد",
+          label: "مشروع منشور",
+          link: "https://www.muyedmohammed.xyz/",
+          description:
+            "موقع بورتفوليو سينمائي مصمم لعرض الخدمات، نماذج الأعمال، وتحويل الزوار إلى تواصل مباشر عبر واتساب بتجربة احترافية مناسبة للموبايل.",
+          impact: "حضور رقمي احترافي يعزز الثقة، يوضح الخدمات، ويساعد على تحويل الزوار إلى عملاء بشكل أسرع.",
+          tags: ["Portfolio", "Website", "Personal Brand", "WhatsApp", "Mobile-first"],
           button: "عرض المشروع"
         }
       ]

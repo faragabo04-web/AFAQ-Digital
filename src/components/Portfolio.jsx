@@ -6,7 +6,8 @@ const projectVisuals = [
   { badge: "CG", style: "cool", nav: ["Menu", "Order", "Location"], ctas: ["Menu", "Order"] },
   { badge: "VN", style: "vante", nav: ["Brand", "Work", "Story"], ctas: ["View", "Brand"] },
   { badge: "MM", style: "play", nav: ["Gallery", "Pricing", "Booking"], ctas: ["Gallery", "Book"] },
-  { badge: "BP", style: "pets", nav: ["Grooming", "Products", "Care"], ctas: ["Services", "Shop"] }
+  { badge: "BP", style: "pets", nav: ["Grooming", "Products", "Care"], ctas: ["Services", "Shop"] },
+  { badge: "M", style: "muyed", nav: ["Services", "Work", "WhatsApp"], ctas: ["View", "Chat"] }
 ];
 
 const builderVisual = { badge: "+", style: "builder", nav: ["Project", "Preview", "Object"], ctas: ["Preview", "Copy"] };
