@@ -1,14 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import SectionIntro from "./SectionIntro.jsx";
 
-const projectVisuals = [
-  { badge: "Z", style: "zawia", nav: ["Services", "Booking", "WhatsApp"], ctas: ["Book", "Maps"] },
-  { badge: "CG", style: "cool", nav: ["Menu", "Order", "Location"], ctas: ["Menu", "Order"] },
-  { badge: "VN", style: "vante", nav: ["Brand", "Work", "Story"], ctas: ["View", "Brand"] },
-  { badge: "MM", style: "play", nav: ["Gallery", "Pricing", "Booking"], ctas: ["Gallery", "Book"] },
-  { badge: "BP", style: "pets", nav: ["Grooming", "Products", "Care"], ctas: ["Services", "Shop"] },
-  { badge: "M", style: "muyed", nav: ["Services", "Work", "WhatsApp"], ctas: ["View", "Chat"] }
-];
+// Keyed by project link (stable across languages and list order) rather than
+// array position, so reordering portfolio.items in content.js can never mismatch a card's theme.
+const projectVisualsByLink = {
+  "https://zawianasr.com/": { badge: "Z", style: "zawia", nav: ["Services", "Booking", "WhatsApp"], ctas: ["Book", "Maps"] },
+  "https://faragabo04-web.github.io/Cool-Grand-restaurant/": { badge: "CG", style: "cool", nav: ["Menu", "Order", "Location"], ctas: ["Menu", "Order"] },
+  "https://ahmed-farouk-vante-noir.vercel.app/": { badge: "VN", style: "vante", nav: ["Brand", "Work", "Story"], ctas: ["View", "Brand"] },
+  "https://faragabo04-web.github.io/MM-PLAYAREA-PREMIUM/": { badge: "MM", style: "play", nav: ["Gallery", "Pricing", "Booking"], ctas: ["Gallery", "Book"] },
+  "https://faragabo04-web.github.io/beauty-pets/": { badge: "BP", style: "pets", nav: ["Grooming", "Products", "Care"], ctas: ["Services", "Shop"] },
+  "https://www.muyedmohammed.xyz/": { badge: "M", style: "muyed", nav: ["Services", "Work", "WhatsApp"], ctas: ["View", "Chat"] }
+};
+
+const defaultVisual = { badge: "•", style: "builder", nav: ["Preview"], ctas: ["View"] };
 
 const builderVisual = { badge: "+", style: "builder", nav: ["Project", "Preview", "Object"], ctas: ["Preview", "Copy"] };
 
@@ -149,6 +153,7 @@ const generateProjectObject = (form, copy, lang) => {
 
 function ProjectCard({ item, visual, index, isPreview = false, labels }) {
   const active = Boolean(item.link);
+  const isVideoStyle = visual.style === "muyed";
   const titleContent = (
     <>
       <span className={`project-logo-badge project-logo-badge--${visual.style}`}>{visual.badge}</span>
@@ -169,14 +174,16 @@ function ProjectCard({ item, visual, index, isPreview = false, labels }) {
             </div>
             <div className="preview-screen">
               <div className="preview-hero-block">
-                <span className="preview-mark">{visual.badge}</span>
+                <span className="preview-mark">
+                  {isVideoStyle ? <span className="preview-play-icon" aria-hidden="true" /> : visual.badge}
+                </span>
                 <div>
                   <span className="preview-line preview-line--wide" />
-                  <span className="preview-line" />
+                  <span className={`preview-line ${isVideoStyle ? "preview-line--timeline" : ""}`} />
                   <span className="preview-line preview-line--short" />
                 </div>
               </div>
-              <div className="preview-ui-grid">
+              <div className={`preview-ui-grid ${isVideoStyle ? "preview-ui-grid--reel" : ""}`}>
                 <span />
                 <span />
                 <span />
@@ -305,7 +312,13 @@ export default function Portfolio({ t }) {
         <SectionIntro title={t.portfolio.title} description={t.portfolio.description} />
         <div className="portfolio-grid">
           {t.portfolio.items.map((item, index) => (
-            <ProjectCard item={item} visual={projectVisuals[index]} index={index} key={item.title} labels={copy} />
+            <ProjectCard
+              item={item}
+              visual={projectVisualsByLink[item.link] ?? defaultVisual}
+              index={index}
+              key={item.link ?? item.title}
+              labels={copy}
+            />
           ))}
 
           <button className="project-card project-card--builder reveal" type="button" onClick={() => setBuilderOpen(true)}>

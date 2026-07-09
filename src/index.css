@@ -2894,6 +2894,64 @@ p {
   color: var(--gold-soft);
 }
 
+/* Video-editor cues for the Muyed card: play mark, timeline, reel thumbnails */
+.preview-play-icon {
+  width: 0;
+  height: 0;
+  margin-inline-start: 3px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-inline-start: 13px solid var(--gold-soft);
+}
+
+.preview-line--timeline {
+  position: relative;
+  background: linear-gradient(90deg, rgba(214, 182, 111, 0.4) 38%, rgba(247, 241, 231, 0.1) 38%);
+}
+
+.preview-line--timeline::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 36%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 6px rgba(214, 182, 111, 0.5);
+}
+
+.preview-ui-grid--reel span {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(214, 182, 111, 0.14), rgba(62, 207, 255, 0.08));
+}
+
+.preview-ui-grid--reel span::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-inline-start: 8px solid rgba(247, 241, 231, 0.55);
+}
+
+.preview-ui-grid--reel span::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 8px;
+  inset-inline-end: 8px;
+  bottom: 6px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(247, 241, 231, 0.18);
+}
+
 .preview-window--builder {
   background:
     radial-gradient(circle at 18% 18%, rgba(214, 182, 111, 0.18), transparent 8rem),
@@ -2912,17 +2970,27 @@ p {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 22px;
+  gap: 14px;
+  padding: 24px 22px 22px;
 }
 
 .project-title {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .project-body p {
   color: rgba(247, 241, 231, 0.78);
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+[dir="rtl"] .project-body p {
+  font-size: 0.92rem;
+  line-height: 1.9;
+}
+
+[dir="rtl"] .impact-note {
+  line-height: 1.8;
 }
 
 .project-title a,
@@ -2954,11 +3022,10 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
-.project-label,
-.impact-note {
+.project-label {
   display: inline-flex;
   width: fit-content;
   padding: 6px 10px;
@@ -2970,12 +3037,22 @@ p {
 }
 
 .impact-note {
-  margin: 12px 0;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(214, 182, 111, 0.2);
+  border-radius: 12px;
   background: rgba(214, 182, 111, 0.08);
+  color: rgba(247, 241, 231, 0.86);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.6;
 }
 
 .tag-row {
-  margin: 18px 0 20px;
+  margin: 0;
+  gap: 8px;
 }
 
 .tag {

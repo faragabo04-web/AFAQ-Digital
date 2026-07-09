@@ -106,13 +106,22 @@ export const content = {
           button: "View Live Project"
         },
         {
-          title: "Cool Grand Restaurant",
-          label: "Website Project",
-          link: "https://faragabo04-web.github.io/Cool-Grand-restaurant/",
+          title: "Muyed Mohammed — Video Editor Portfolio",
+          label: "Creator Portfolio",
+          link: "https://www.muyedmohammed.xyz/",
           description:
-            "Modern restaurant website focused on menu presentation, food visuals, WhatsApp ordering, Google Maps, and fast customer action.",
-          impact: "Made menu browsing and ordering smoother for customers at home.",
-          tags: ["Restaurant", "Menu Experience", "WhatsApp Orders", "Google Maps", "Customer Journey"],
+            "A premium cinematic portfolio website built for a video editor and creative professional, showcasing visual work, services, personal brand presence, and direct WhatsApp conversion.",
+          impact: "Positioned the creator with a stronger digital presence, clearer service presentation, and a more professional first impression for potential clients.",
+          tags: ["Video Editor", "Creator Portfolio", "Personal Brand", "Website", "WhatsApp"],
+          button: "View Project"
+        },
+        {
+          title: "Beauty Pets",
+          label: "Website Concept",
+          link: "https://faragabo04-web.github.io/beauty-pets/",
+          description:
+            "Pet shop website concept for grooming, products, accessories, services, and easy customer contact.",
+          tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
           button: "View Project"
         },
         {
@@ -134,23 +143,14 @@ export const content = {
           button: "View Project"
         },
         {
-          title: "Beauty Pets",
-          label: "Website Concept",
-          link: "https://faragabo04-web.github.io/beauty-pets/",
+          title: "Cool Grand Restaurant",
+          label: "Website Project",
+          link: "https://faragabo04-web.github.io/Cool-Grand-restaurant/",
           description:
-            "Pet shop website concept for grooming, products, accessories, services, and easy customer contact.",
-          tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
+            "Modern restaurant website focused on menu presentation, food visuals, WhatsApp ordering, Google Maps, and fast customer action.",
+          impact: "Made menu browsing and ordering smoother for customers at home.",
+          tags: ["Restaurant", "Menu Experience", "WhatsApp Orders", "Google Maps", "Customer Journey"],
           button: "View Project"
-        },
-        {
-          title: "Muyed Portfolio Website",
-          label: "Live Project",
-          link: "https://www.muyedmohammed.xyz/",
-          description:
-            "A cinematic personal portfolio website built to showcase services, visual proof, and direct WhatsApp conversion through a premium mobile-first experience.",
-          impact: "Premium online presence with stronger trust, clear service presentation, and faster client conversion.",
-          tags: ["Portfolio", "Website", "Personal Brand", "WhatsApp", "Mobile-first"],
-          button: "View Live Project"
         }
       ]
     },
@@ -486,12 +486,21 @@ export const content = {
           button: "عرض المشروع"
         },
         {
-          title: "Cool Grand Restaurant",
-          label: "مشروع موقع",
-          link: "https://faragabo04-web.github.io/Cool-Grand-restaurant/",
-          description: "موقع مطعم حديث يركز على عرض المنيو، الصور، الطلب عبر واتساب، خرائط Google، وسرعة تفاعل العميل.",
-          impact: "جعل تصفح المنيو والطلب من المنزل أسهل وأكثر سلاسة.",
-          tags: ["Restaurant", "Menu Experience", "WhatsApp Orders", "Google Maps", "Customer Journey"],
+          title: "بورتفوليو مؤيد محمد — مونتير فيديو",
+          label: "بورتفوليو إبداعي",
+          link: "https://www.muyedmohammed.xyz/",
+          description:
+            "موقع بورتفوليو سينمائي احترافي مصمم لمونتير فيديو وصانع محتوى، يعرض الأعمال البصرية، الخدمات، الهوية الشخصية، ويوجه الزوار للتواصل المباشر عبر واتساب.",
+          impact: "يعزز حضور مؤيد الرقمي، يعرض شغله بشكل أقوى، ويمنح العملاء انطباعًا احترافيًا من أول زيارة.",
+          tags: ["Video Editor", "Creator Portfolio", "Personal Brand", "Website", "WhatsApp"],
+          button: "عرض المشروع"
+        },
+        {
+          title: "Beauty Pets",
+          label: "نموذج موقع",
+          link: "https://faragabo04-web.github.io/beauty-pets/",
+          description: "نموذج موقع لمحل حيوانات أليفة يعرض العناية، المنتجات، الإكسسوارات، الخدمات، وطرق تواصل سهلة.",
+          tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
           button: "عرض المشروع"
         },
         {
@@ -511,21 +520,12 @@ export const content = {
           button: "عرض المشروع"
         },
         {
-          title: "Beauty Pets",
-          label: "نموذج موقع",
-          link: "https://faragabo04-web.github.io/beauty-pets/",
-          description: "نموذج موقع لمحل حيوانات أليفة يعرض العناية، المنتجات، الإكسسوارات، الخدمات، وطرق تواصل سهلة.",
-          tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
-          button: "عرض المشروع"
-        },
-        {
-          title: "موقع بورتفوليو مؤيد",
-          label: "مشروع منشور",
-          link: "https://www.muyedmohammed.xyz/",
-          description:
-            "موقع بورتفوليو سينمائي مصمم لعرض الخدمات، نماذج الأعمال، وتحويل الزوار إلى تواصل مباشر عبر واتساب بتجربة احترافية مناسبة للموبايل.",
-          impact: "حضور رقمي احترافي يعزز الثقة، يوضح الخدمات، ويساعد على تحويل الزوار إلى عملاء بشكل أسرع.",
-          tags: ["Portfolio", "Website", "Personal Brand", "WhatsApp", "Mobile-first"],
+          title: "Cool Grand Restaurant",
+          label: "مشروع موقع",
+          link: "https://faragabo04-web.github.io/Cool-Grand-restaurant/",
+          description: "موقع مطعم حديث يركز على عرض المنيو، الصور، الطلب عبر واتساب، خرائط Google، وسرعة تفاعل العميل.",
+          impact: "جعل تصفح المنيو والطلب من المنزل أسهل وأكثر سلاسة.",
+          tags: ["Restaurant", "Menu Experience", "WhatsApp Orders", "Google Maps", "Customer Journey"],
           button: "عرض المشروع"
         }
       ]
