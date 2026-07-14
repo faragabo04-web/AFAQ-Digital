@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { navLinks } from "../data/content.js";
 import Logo from "./Logo.jsx";
 
-export default function Header({ lang, t, onToggleLanguage, theme, onToggleTheme }) {
+export default function Header({ lang, t, onToggleLanguage }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,43 +43,25 @@ export default function Header({ lang, t, onToggleLanguage, theme, onToggleTheme
             ))}
           </div>
           <div className="nav-actions">
-            <button
-              className="theme-toggle"
-              type="button"
-              onClick={onToggleTheme}
-              aria-pressed={theme === "light"}
-              aria-label={
-                t.dir === "rtl"
-                  ? theme === "dark"
-                    ? "التبديل إلى الوضع الفاتح"
-                    : "التبديل إلى الوضع الداكن"
-                  : theme === "dark"
-                    ? "Switch to light mode"
-                    : "Switch to dark mode"
-              }
-            >
-              {theme === "dark" ? (
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <circle cx="12" cy="12" r="4.4" fill="currentColor" />
-                  <g stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
-                    <path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9" />
-                  </g>
-                </svg>
-              ) : (
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path
-                    d="M20.6 14.4A8.6 8.6 0 0 1 9.6 3.4a8.6 8.6 0 1 0 11 11Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              )}
-            </button>
-            <button className="language-switch" type="button" onClick={onToggleLanguage}>
-              <span className="language-icon" aria-hidden="true">
-                ◌
-              </span>
-              <span>{t.langLabel}</span>
-            </button>
+            <div className="lang-switch" role="group" aria-label={t.dir === "rtl" ? "اختيار اللغة" : "Language"}>
+              <button
+                type="button"
+                className={lang === "en" ? "is-active" : ""}
+                aria-pressed={lang === "en"}
+                onClick={() => lang !== "en" && onToggleLanguage()}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                lang="ar"
+                className={lang === "ar" ? "is-active" : ""}
+                aria-pressed={lang === "ar"}
+                onClick={() => lang !== "ar" && onToggleLanguage()}
+              >
+                عربي
+              </button>
+            </div>
             <a className="btn btn--primary btn--nav" href="#contact" onClick={closeMenu}>
               {t.navCta}
             </a>

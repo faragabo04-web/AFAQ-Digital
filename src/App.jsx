@@ -19,14 +19,8 @@ const getInitialLang = () => {
   return localStorage.getItem("afaq-language") === "ar" ? "ar" : "en";
 };
 
-const getInitialTheme = () => {
-  if (typeof window === "undefined") return "dark";
-  return localStorage.getItem("afaq-theme") === "light" ? "light" : "dark";
-};
-
 export default function App() {
   const [lang, setLang] = useState(getInitialLang);
-  const [theme, setTheme] = useState(getInitialTheme);
   const t = content[lang];
 
   useEffect(() => {
@@ -36,17 +30,11 @@ export default function App() {
     localStorage.setItem("afaq-language", lang);
   }, [lang, t.dir]);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem("afaq-theme", theme);
-  }, [theme]);
-
   const toggleLanguage = () => setLang((current) => (current === "en" ? "ar" : "en"));
-  const toggleTheme = () => setTheme((current) => (current === "dark" ? "light" : "dark"));
 
   return (
     <>
-      <Header lang={lang} t={t} onToggleLanguage={toggleLanguage} theme={theme} onToggleTheme={toggleTheme} />
+      <Header lang={lang} t={t} onToggleLanguage={toggleLanguage} />
       <main>
         <Hero t={t} />
         <Services t={t} />
