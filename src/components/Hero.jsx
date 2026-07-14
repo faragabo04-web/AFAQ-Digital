@@ -11,20 +11,6 @@ const heroChipTargets = [
 ];
 
 export default function Hero({ t }) {
-  const highlightService = (href) => {
-    window.setTimeout(() => {
-      const target = document.querySelector(href);
-      const card = target?.closest(".service-card") || target;
-
-      if (!card) return;
-      card.classList.remove("service-card--highlight");
-      window.requestAnimationFrame(() => {
-        card.classList.add("service-card--highlight");
-        window.setTimeout(() => card.classList.remove("service-card--highlight"), 1800);
-      });
-    }, 260);
-  };
-
   return (
     <section className="hero section" id="home">
       <div className="shell hero-grid">
@@ -47,25 +33,6 @@ export default function Hero({ t }) {
             <a className="btn btn--ghost" href={whatsappHref} target="_blank" rel="noreferrer">
               {t.hero.secondary}
             </a>
-          </div>
-          <div className="hero-service-strip" aria-label="Services">
-            <div className="hero-service-strip-inner">
-              {[...t.hero.chips, ...t.hero.chips].map((service, index) => {
-                const target = heroChipTargets[index % heroChipTargets.length];
-
-                return (
-                  <a
-                    href={target}
-                    key={`${service}-${index}`}
-                    onClick={() => highlightService(target)}
-                    aria-hidden={index >= t.hero.chips.length}
-                    tabIndex={index >= t.hero.chips.length ? -1 : undefined}
-                  >
-                    {service}
-                  </a>
-                );
-              })}
-            </div>
           </div>
         </div>
 
