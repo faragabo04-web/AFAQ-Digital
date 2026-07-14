@@ -620,50 +620,25 @@ p {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Calm light-first hero — no photo, no orbital system; one premium mockup carries the visual. */
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: calc(100vh - 80px);
+  min-height: min(720px, calc(100vh - 80px));
   display: grid;
   align-items: center;
   padding-top: 44px;
-  padding-bottom: 84px;
+  padding-bottom: 72px;
   overflow: hidden;
-  background: #02050c;
+  background: transparent;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("/images/lifestyle-5.jpg");
-  background-image: image-set(
-    url("/images/lifestyle-5.webp") type("image/webp"),
-    url("/images/lifestyle-5.jpg") type("image/jpeg")
-  );
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  filter: saturate(1.05) contrast(1.04) brightness(0.9);
-  opacity: 0.92;
-  transform: scale(1.02);
-  z-index: 0;
+  content: none;
 }
 
-/* Soft directional overlay — lets the real photo breathe while keeping text legible */
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(2, 5, 12, 0.68) 0%, rgba(3, 8, 17, 0.44) 34%, rgba(4, 9, 18, 0.18) 60%, rgba(2, 5, 12, 0.52) 100%),
-    linear-gradient(180deg, rgba(2, 5, 12, 0.48) 0%, rgba(2, 5, 12, 0.08) 42%, rgba(2, 5, 12, 0.82) 100%),
-    radial-gradient(ellipse at 72% 48%, rgba(2, 5, 12, 0.14), transparent 34%),
-    radial-gradient(ellipse at 50% 18%, rgba(62, 207, 255, 0.1), transparent 45%),
-    radial-gradient(ellipse at 50% 100%, rgba(214, 182, 111, 0.07), transparent 70%);
-  z-index: 1;
+  content: none;
 }
 
 .hero-grid {
@@ -5467,35 +5442,14 @@ main > .section + .section {
   color: #475569;
 }
 
-/* Hero atmosphere */
+/* Hero atmosphere — photo/skyline retired with the Stage 3 hero redesign */
 [data-theme="light"] .hero {
-  background: #f8fafc;
+  background: transparent;
 }
 
-[data-theme="light"] .hero::before {
-  background-image: url("/images/lifestyle-5.jpg");
-  background-image: image-set(
-    url("/images/lifestyle-5.webp") type("image/webp"),
-    url("/images/lifestyle-5.jpg") type("image/jpeg")
-  );
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  filter: saturate(0.95) contrast(1.02) brightness(0.88);
-  opacity: 0.75;
-}
-
+[data-theme="light"] .hero::before,
 [data-theme="light"] .hero::after {
-  background:
-    linear-gradient(90deg, rgba(248, 250, 252, 0.58) 0%, rgba(241, 245, 249, 0.36) 34%, rgba(241, 245, 249, 0.1) 60%, rgba(248, 250, 252, 0.46) 100%),
-    linear-gradient(180deg, rgba(248, 250, 252, 0.48) 0%, rgba(241, 245, 249, 0.06) 42%, rgba(248, 250, 252, 0.88) 100%),
-    radial-gradient(ellipse at 50% 100%, rgba(12, 126, 158, 0.07), transparent 58%),
-    radial-gradient(ellipse at 50% 100%, rgba(11, 92, 173, 0.05), transparent 70%);
-}
-
-[data-theme="light"] .hero-skyline {
-  opacity: 0.92;
-  filter: saturate(1.05) contrast(1.05);
+  content: none;
 }
 
 [data-theme="light"] .hero-copy h1 {
@@ -5998,5 +5952,282 @@ main > .section + .section {
 }
 
 [data-theme="light"] .faq-item.is-open {
-  border-color: rgba(138, 106, 34, 0.42);
+  border-color: rgba(11, 92, 173, 0.38);
+}
+
+/* ==========================================================================
+   HERO SHOWCASE — Stage 3: one calm premium website mockup (light-first)
+   ========================================================================== */
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-trust li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0b5cad, #22d3ee);
+  flex: none;
+}
+
+.hero-showcase {
+  position: relative;
+  justify-self: center;
+  width: min(540px, 100%);
+  padding: 16px 14px 24px;
+}
+
+.mockup-browser {
+  border: 1px solid #d8e5f0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 34px 80px rgba(9, 30, 56, 0.14), 0 6px 18px rgba(9, 30, 56, 0.06);
+  overflow: hidden;
+}
+
+.mockup-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e4edf6;
+  background: #f6fafd;
+}
+
+.mockup-bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d8e5f0;
+  flex: none;
+}
+
+.mockup-bar em {
+  margin-inline-start: 10px;
+  flex: 1;
+  max-width: 220px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #eef4fb;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  direction: ltr;
+}
+
+.mockup-screen {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.mockup-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mockup-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0b5cad, #22d3ee);
+  flex: none;
+}
+
+.mockup-links {
+  display: flex;
+  gap: 8px;
+  margin-inline-start: 8px;
+  flex: 1;
+}
+
+.mockup-links i {
+  width: 34px;
+  height: 6px;
+  border-radius: 3px;
+  background: #dbe7f2;
+}
+
+.mockup-pill {
+  width: 74px;
+  height: 24px;
+  border-radius: 999px;
+  background: #0b5cad;
+  flex: none;
+}
+
+/* The navy panel inside the mockup carries the premium brand contrast */
+.mockup-hero {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  padding: 26px 22px 24px;
+  border-radius: 14px;
+  background: linear-gradient(140deg, #061a2e, #0b2239 70%, #0d2c49);
+  overflow: hidden;
+}
+
+.mockup-hero::after {
+  content: "";
+  position: absolute;
+  top: -70px;
+  inset-inline-end: -70px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mockup-line {
+  height: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 78%;
+}
+
+.mockup-line--title {
+  width: 62%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.mockup-line--short {
+  width: 46%;
+}
+
+.mockup-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.mockup-btns i {
+  width: 76px;
+  height: 26px;
+  border-radius: 999px;
+  background: #0b5cad;
+}
+
+.mockup-btns i:last-child {
+  background: transparent;
+  border: 1px solid rgba(34, 211, 238, 0.5);
+}
+
+.mockup-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.mockup-cards span {
+  height: 54px;
+  border: 1px solid #e4edf6;
+  border-radius: 10px;
+  background: #f6fafd;
+}
+
+.mockup-float {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid #d8e5f0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(9, 30, 56, 0.12);
+  color: #0f172a;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mockup-float--lang {
+  top: 0;
+  inset-inline-start: -6px;
+  color: #0a4e93;
+  letter-spacing: 0.02em;
+}
+
+.mockup-float--growth {
+  bottom: 0;
+  inset-inline-end: -6px;
+}
+
+.mockup-spark {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+
+.mockup-spark i {
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #22d3ee, #0b5cad);
+}
+
+.mockup-spark i:nth-child(1) {
+  height: 6px;
+}
+
+.mockup-spark i:nth-child(2) {
+  height: 9px;
+}
+
+.mockup-spark i:nth-child(3) {
+  height: 12px;
+}
+
+.mockup-spark i:nth-child(4) {
+  height: 16px;
+}
+
+@media (max-width: 1060px) {
+  .hero-showcase {
+    margin-top: 6px;
+  }
+
+  .mockup-float--lang {
+    inset-inline-start: 6px;
+  }
+
+  .mockup-float--growth {
+    inset-inline-end: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-showcase {
+    padding: 10px 4px 20px;
+  }
+
+  .mockup-screen {
+    padding: 14px;
+    gap: 11px;
+  }
+
+  .mockup-hero {
+    padding: 20px 16px 18px;
+  }
 }

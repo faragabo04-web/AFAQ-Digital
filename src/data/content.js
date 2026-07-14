@@ -29,14 +29,17 @@ export const content = {
     navCta: "Start Your Project",
     hero: {
       badge: "Premium Digital Agency",
-      headline: "Premium Websites & Smart Systems for Growing Businesses",
+      headline: "Websites That Make Your Business Look Trusted, Modern, and Ready to Grow.",
       description:
-        "AFAQ Digital builds premium websites, online stores, dashboards, and digital presence solutions that help growing businesses look professional, work smarter, and attract more customers.",
-      chips: ["Websites", "E-Commerce", "Dashboards", "Google Business", "LinkedIn", "AI Assistant"],
-      location: "Based in Dubai · Serving UAE, GCC & Worldwide",
+        "AFAQ Digital builds premium websites, online stores, and smart dashboards that help growing businesses look professional and win more customers.",
       primary: "Start Your Project",
-      secondary: "WhatsApp Consultation",
-      floating: ["Website Ready", "Online Store", "Sales Dashboard", "Google Profile", "AI Assistant"]
+      secondary: "See Our Work",
+      trust: [
+        "Based in Dubai · Serving UAE, GCC & Worldwide",
+        "Bilingual EN / AR websites",
+        "Websites · Stores · Dashboards · AI Assistant"
+      ],
+      floatNote: "Built to grow"
     },
     services: {
       title: "Digital Solutions Built for Your Business Growth",
@@ -410,14 +413,17 @@ export const content = {
     navCta: "ابدأ مشروعك",
     hero: {
       badge: "وكالة رقمية بريميوم",
-      headline: "مواقع احترافية وأنظمة ذكية لنمو مشروعك",
+      headline: "مواقع احترافية تجعل عملك أكثر ثقة وحداثة وجاهزية للنمو.",
       description:
-        "تبني AFAQ Digital مواقع احترافية، متاجر إلكترونية، داشبوردات، وحلول حضور رقمي تساعد المشاريع على الظهور باحتراف، العمل بكفاءة، وجذب عملاء أكثر.",
-      chips: ["مواقع إلكترونية", "متاجر إلكترونية", "داشبوردات", "Google Business", "LinkedIn", "مساعد ذكي"],
-      location: "مقرنا دبي · نخدم الإمارات، الخليج، والعالم",
+        "تبني AFAQ Digital مواقع احترافية، متاجر إلكترونية، وداشبوردات ذكية تساعد المشاريع النامية على الظهور باحتراف وكسب عملاء أكثر.",
       primary: "ابدأ مشروعك",
-      secondary: "استشارة عبر واتساب",
-      floating: ["موقع جاهز", "متجر إلكتروني", "داشبورد مبيعات", "صفحة Google", "مساعد ذكي"]
+      secondary: "شاهد أعمالنا",
+      trust: [
+        "مقرنا دبي · نخدم الإمارات، الخليج، والعالم",
+        "مواقع ثنائية اللغة عربي / إنجليزي",
+        "مواقع · متاجر · داشبوردات · مساعد ذكي"
+      ],
+      floatNote: "جاهز للنمو"
     },
     services: {
       title: "حلول رقمية مصممة لنمو مشروعك",
