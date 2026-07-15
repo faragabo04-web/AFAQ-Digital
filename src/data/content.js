@@ -48,31 +48,61 @@ export const content = {
     services: {
       title: "Digital Solutions Built for Your Business Growth",
       description:
-        "From websites and online stores to dashboards and digital presence, AFAQ Digital helps your business look professional, work smarter, and reach more customers.",
+        "From websites and online stores to business systems and digital presence, AFAQ Digital helps your business look professional, work smarter, and reach more customers.",
+      proofBar: {
+        kicker: "Related Work",
+        showAll: "Show all projects",
+        back: "Back to services"
+      },
       items: [
         {
+          id: "websites",
           title: "Premium Websites",
-          text: "We build elegant business websites that present your services clearly, build trust, and turn visitors into real inquiries."
+          tagline: "Designed to win trust. Built to convert.",
+          text: "Custom business websites that present your brand clearly, load fast, and turn visitors into real enquiries.",
+          points: ["Brand-aligned custom design", "Responsive on every device", "SEO-ready structure", "Proven with live projects"],
+          cta: "View Website Work"
         },
         {
+          id: "ecommerce",
           title: "E-Commerce Stores",
-          text: "We build online stores that help businesses showcase products, receive orders, and sell online smoothly."
+          tagline: "From first visit to checkout.",
+          text: "Online stores built for smooth browsing, easy ordering, and catalogs that grow with your business.",
+          points: ["Conversion-focused product pages", "Smooth checkout journey", "Scalable catalog & orders"],
+          cta: "View Store Work"
         },
         {
-          title: "Google Sheets Dashboard",
-          text: "We create smart dashboards to track sales, expenses, revenue, performance, and daily business activity in one organized place."
+          id: "dashboards",
+          title: "Business Systems & Dashboards",
+          tagline: "Your operations, in one clear system.",
+          text: "Custom systems and dashboards that connect accounting, inventory, and daily operations with real-time reporting.",
+          points: ["Accounting & finance workflows", "Inventory & operations management", "Real-time reports & analytics", "Scales as your business grows"],
+          cta: "Request a Demo"
         },
         {
-          title: "Google Business Profile Management",
-          text: "We improve your Google Business Profile with updated information, photos, services, products, and better local visibility."
+          id: "google-business",
+          title: "Google Business Profile",
+          tagline: "Be found. Be trusted. Locally.",
+          text: "Optimized profiles that improve local discovery and turn searches into calls, directions, and visits.",
+          points: ["Accurate, complete profile setup", "Stronger local visibility", "Trust signals that convert"],
+          cta: "Improve My Profile"
         },
         {
-          title: "LinkedIn Profile Optimization",
-          text: "We improve LinkedIn profiles with a professional headline, about section, skills, experience, and clear personal or business positioning."
+          id: "linkedin",
+          title: "LinkedIn Optimization",
+          tagline: "Positioning that opens doors.",
+          text: "Professional profile optimization that sharpens your positioning and makes the right opportunities find you.",
+          points: ["Clear professional narrative", "Authority-building profile", "Better opportunity visibility"],
+          cta: "See a Live Profile"
         },
         {
+          id: "ai-assistant",
           title: "AI Website Assistant",
-          text: "We add a smart website assistant that answers common questions, guides visitors, and sends serious customers to WhatsApp or your contact form."
+          tagline: "Smart support. 24/7. Always on.",
+          text: "We integrate AI assistants into your website to answer questions, qualify leads, and support your customers automatically.",
+          points: ["24/7 customer support", "Lead qualification", "Smart, human-like conversations"],
+          cta: "Try the Assistant",
+          chat: ["Hello! How can I help you today?", "I want a website for my business.", "Great — tell me your goals and I'll guide you."]
         }
       ]
     },
@@ -434,31 +464,61 @@ export const content = {
     services: {
       title: "حلول رقمية مصممة لنمو مشروعك",
       description:
-        "من المواقع والمتاجر الإلكترونية إلى الداشبوردات والحضور الرقمي، تساعدك AFAQ Digital على الظهور باحتراف، العمل بكفاءة، والوصول لعملاء أكثر.",
+        "من المواقع والمتاجر الإلكترونية إلى أنظمة الأعمال والحضور الرقمي، تساعدك AFAQ Digital على الظهور باحتراف، العمل بكفاءة، والوصول لعملاء أكثر.",
+      proofBar: {
+        kicker: "أعمال ذات صلة",
+        showAll: "عرض كل المشاريع",
+        back: "العودة إلى الخدمات"
+      },
       items: [
         {
+          id: "websites",
           title: "مواقع احترافية",
-          text: "نصمم ونطوّر مواقع راقية تعرض خدماتك بوضوح، تبني الثقة، وتحول الزوار إلى عملاء محتملين."
+          tagline: "تصميم يبني الثقة، وبناء يحوّل الزوار لعملاء.",
+          text: "مواقع أعمال مخصصة تعرض علامتك بوضوح، تعمل بسرعة، وتحوّل الزوار إلى استفسارات حقيقية.",
+          points: ["تصميم مخصص يعكس هويتك", "متجاوب على كل الأجهزة", "هيكل جاهز لمحركات البحث", "مشاريع حقيقية منشورة"],
+          cta: "شاهد أعمال المواقع"
         },
         {
+          id: "ecommerce",
           title: "متاجر إلكترونية",
-          text: "نصمم ونطوّر متاجر إلكترونية تساعد الشركات على عرض منتجاتها، استقبال الطلبات، والبيع أونلاين بسهولة واحترافية."
+          tagline: "من أول زيارة حتى إتمام الطلب.",
+          text: "متاجر إلكترونية مبنية لتصفح سلس، طلب سهل، وكتالوج ينمو مع مشروعك.",
+          points: ["صفحات منتجات تركز على البيع", "رحلة شراء سلسة", "كتالوج وطلبات قابلة للتوسع"],
+          cta: "شاهد أعمال المتاجر"
         },
         {
-          title: "داشبورد Google Sheets",
-          text: "ننشئ داشبوردات ذكية لمتابعة المبيعات، المصروفات، الإيرادات، الأداء، وحركة العمل اليومية في مكان واحد منظم."
+          id: "dashboards",
+          title: "أنظمة أعمال وداشبوردات",
+          tagline: "عملياتك كلها في نظام واحد واضح.",
+          text: "أنظمة وداشبوردات مخصصة تربط الحسابات، المخزون، والعمليات اليومية بتقارير لحظية.",
+          points: ["حسابات وتدفقات مالية", "إدارة المخزون والعمليات", "تقارير وتحليلات لحظية", "يتوسع مع نمو مشروعك"],
+          cta: "اطلب عرضًا تجريبيًا"
         },
         {
-          title: "إدارة Google Business Profile",
-          text: "نحسّن صفحة نشاطك على Google من خلال تحديث البيانات، رفع الصور، إضافة الخدمات والمنتجات، وتحسين ظهورك المحلي للعملاء."
+          id: "google-business",
+          title: "Google Business Profile",
+          tagline: "اظهر محليًا. واكسب الثقة.",
+          text: "ملفات محسّنة تقوّي ظهورك المحلي وتحوّل عمليات البحث إلى اتصالات وزيارات.",
+          points: ["إعداد ملف دقيق ومكتمل", "ظهور محلي أقوى", "إشارات ثقة تجذب العملاء"],
+          cta: "حسّن ملفك الآن"
         },
         {
+          id: "linkedin",
           title: "تحسين حساب LinkedIn",
-          text: "نحسّن حساب LinkedIn من حيث العنوان، النبذة، المهارات، الخبرات، وطريقة عرضك المهني أو التجاري بشكل أكثر ثقة."
+          tagline: "حضور مهني يفتح الفرص.",
+          text: "تحسين احترافي لملفك يوضح تموضعك المهني ويجعل الفرص المناسبة تصل إليك.",
+          points: ["سرد مهني واضح", "ملف يبني المصداقية", "ظهور أفضل أمام الفرص"],
+          cta: "شاهد ملفًا حقيقيًا"
         },
         {
+          id: "ai-assistant",
           title: "مساعد ذكي للموقع",
-          text: "نضيف مساعدًا ذكيًا يرد على الأسئلة الشائعة، يوجه الزائر، ويرسل العملاء الجادين إلى واتساب أو نموذج التواصل."
+          tagline: "دعم ذكي. على مدار الساعة.",
+          text: "ندمج مساعدًا ذكيًا في موقعك يجيب على الأسئلة، يؤهل العملاء المحتملين، ويدعم زوارك تلقائيًا.",
+          points: ["دعم للعملاء 24/7", "تأهيل العملاء المحتملين", "محادثات ذكية وطبيعية"],
+          cta: "جرّب المساعد",
+          chat: ["مرحبًا! كيف أساعدك اليوم؟", "أريد موقعًا لنشاطي التجاري.", "رائع — أخبرني عن هدفك وسأوجهك خطوة بخطوة."]
         }
       ]
     },

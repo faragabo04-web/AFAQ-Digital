@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { whatsappHref } from "../data/content.js";
+import { OPEN_ASSISTANT_EVENT } from "../data/serviceProofMap.js";
 import Logo from "./Logo.jsx";
 
 export default function AssistantWidget({ t }) {
@@ -9,6 +10,13 @@ export default function AssistantWidget({ t }) {
   useEffect(() => {
     setMessages([t.assistant.welcome]);
   }, [t.assistant.welcome]);
+
+  // The AI Website Assistant service card opens this widget as its live demo.
+  useEffect(() => {
+    const openAssistant = () => setOpen(true);
+    window.addEventListener(OPEN_ASSISTANT_EVENT, openAssistant);
+    return () => window.removeEventListener(OPEN_ASSISTANT_EVENT, openAssistant);
+  }, []);
 
   const chooseAction = (index) => {
     const response = t.assistant.responses[index];

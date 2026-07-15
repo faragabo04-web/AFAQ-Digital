@@ -1,4 +1,5 @@
 import SectionIntro from "./SectionIntro.jsx";
+import { projectServicesByLink } from "../data/serviceProofMap.js";
 
 // Keyed by project link (stable across languages and list order) rather than
 // array position, so reordering portfolio.items in content.js can never mismatch a card's theme.
@@ -99,16 +100,40 @@ function ProjectCard({ item, visual, index, labels }) {
   );
 }
 
-export default function Portfolio({ t }) {
+export default function Portfolio({ t, proofFilter, onClearProofFilter }) {
   const lang = t.dir === "rtl" ? "ar" : "en";
   const labels = cardLabels[lang];
+  const items = proofFilter
+    ? t.portfolio.items.filter((item) => (projectServicesByLink[item.link] ?? []).includes(proofFilter.serviceId))
+    : t.portfolio.items;
+
+  const backToServices = () => {
+    onClearProofFilter();
+    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="section" id="work">
       <div className="shell">
         <SectionIntro title={t.portfolio.title} description={t.portfolio.description} />
+        {proofFilter && (
+          <div className="proof-bar reveal" role="status">
+            <p className="proof-bar-label">
+              <span className="proof-bar-kicker">{t.services.proofBar.kicker}</span>
+              <strong>{proofFilter.title}</strong>
+            </p>
+            <div className="proof-bar-actions">
+              <button type="button" onClick={onClearProofFilter}>
+                {t.services.proofBar.showAll}
+              </button>
+              <button type="button" onClick={backToServices}>
+                {t.services.proofBar.back}
+              </button>
+            </div>
+          </div>
+        )}
         <div className="portfolio-grid">
-          {t.portfolio.items.map((item, index) => (
+          {items.map((item, index) => (
             <ProjectCard
               item={item}
               visual={projectVisualsByLink[item.link] ?? defaultVisual}

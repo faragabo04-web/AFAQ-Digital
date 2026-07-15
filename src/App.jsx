@@ -21,7 +21,14 @@ const getInitialLang = () => {
 
 export default function App() {
   const [lang, setLang] = useState(getInitialLang);
+  const [proofFilter, setProofFilter] = useState(null);
   const t = content[lang];
+
+  // Service card → internal proof view: filter the Work grid, then scroll to it.
+  const showServiceProof = (serviceId, title) => {
+    setProofFilter({ serviceId, title });
+    window.requestAnimationFrame(() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" }));
+  };
 
   useEffect(() => {
     document.documentElement.dir = t.dir;
@@ -37,9 +44,9 @@ export default function App() {
       <Header lang={lang} t={t} onToggleLanguage={toggleLanguage} />
       <main>
         <Hero t={t} />
-        <Services t={t} />
+        <Services t={t} onShowProof={showServiceProof} />
         <WhyChoose t={t} />
-        <Portfolio t={t} />
+        <Portfolio t={t} proofFilter={proofFilter} onClearProofFilter={() => setProofFilter(null)} />
         <Process t={t} />
         <Packages t={t} />
         <About t={t} />
