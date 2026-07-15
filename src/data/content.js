@@ -2,7 +2,11 @@ export const WHATSAPP_NUMBER = "971504131228";
 export const WHATSAPP_URL = "https://wa.me/971504131228";
 export const PHONE_DISPLAY = "+971 50 413 1228";
 export const PHONE_DISPLAY_LOCAL = "050 413 1228";
-export const GOOGLE_FORM_URL = "TODO_ADD_GOOGLE_FORM_URL";
+// Web3Forms access key — get one free at https://web3forms.com (routes form
+// submissions to the AFAQ inbox; the key is public-safe). Until the real key
+// replaces this TODO value, the contact form shows an error and directs
+// visitors to WhatsApp instead of pretending to send.
+export const WEB3FORMS_ACCESS_KEY = "65cd398c-0b78-4b03-a3a8-5db5efe0b507";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/ahmed-farouk-01b279286/";
 export const FACEBOOK_URL = "https://www.facebook.com/helloafaqdigital";
 export const INSTAGRAM_URL = "https://www.instagram.com/helloafaqdigital/";
@@ -363,8 +367,10 @@ export const content = {
       submit: "Start Your Project",
       whatsapp: "Chat on WhatsApp",
       cards: ["WhatsApp", "Google Form", "LinkedIn"],
-      success: "Thanks. Your details are ready. Please use WhatsApp for the fastest reply.",
-      required: "Please complete the highlighted fields."
+      success: "Thank you! Your request was sent successfully. We'll get back to you soon — or message us on WhatsApp for the fastest reply.",
+      required: "Please complete the highlighted fields.",
+      sending: "Sending your details…",
+      error: "Something went wrong while sending. Please try again, or contact us directly on WhatsApp."
     },
     assistant: {
       name: "AFAQ Assistant",
@@ -733,8 +739,10 @@ export const content = {
       submit: "ابدأ مشروعك",
       whatsapp: "تواصل عبر واتساب",
       cards: ["WhatsApp", "Google Form", "LinkedIn"],
-      success: "تم تجهيز بياناتك. استخدم واتساب للحصول على أسرع رد.",
-      required: "من فضلك أكمل الحقول المحددة."
+      success: "شكرًا لك! تم إرسال طلبك بنجاح وسنتواصل معك قريبًا — أو راسلنا عبر واتساب للرد الأسرع.",
+      required: "من فضلك أكمل الحقول المحددة.",
+      sending: "جارٍ إرسال بياناتك…",
+      error: "حدث خطأ أثناء الإرسال. حاول مرة أخرى أو تواصل معنا مباشرة عبر واتساب."
     },
     assistant: {
       name: "مساعد AFAQ الذكي",

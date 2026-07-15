@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LINKEDIN_URL, PHONE_DISPLAY, WHATSAPP_URL, whatsappHref } from "../data/content.js";
+import { LINKEDIN_URL, PHONE_DISPLAY, WEB3FORMS_ACCESS_KEY, WHATSAPP_URL, whatsappHref } from "../data/content.js";
 
 const WEBSITE_REQUEST_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLScjcL6Z3P-wodVN_9V3Lgca4cRvY8rq1Zl3hXxcY2khOaCEmQ/viewform?usp=header";
@@ -16,8 +16,9 @@ export default function Contact({ t }) {
   const [form, setForm] = useState(initialForm);
   const [touched, setTouched] = useState(false);
   const [status, setStatus] = useState("");
+  const [statusIsError, setStatusIsError] = useState(false);
+  const [sending, setSending] = useState(false);
   const required = ["name", "whatsapp", "service"];
-  const invalid = touched && required.some((key) => !form[key].trim());
   const websiteRequestCard =
     t.dir === "rtl"
       ? {
@@ -36,16 +37,50 @@ export default function Contact({ t }) {
     setForm((current) => ({ ...current, [name]: value }));
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setTouched(true);
     if (required.some((key) => !form[key].trim())) {
+      setStatusIsError(true);
       setStatus(t.contact.required);
       return;
     }
 
-    window.open(WEBSITE_REQUEST_FORM_URL, "_blank", "noopener,noreferrer");
-    setStatus(t.contact.success);
+    // No real access key configured yet — fail honestly instead of pretending to send.
+    if (WEB3FORMS_ACCESS_KEY.startsWith("TODO")) {
+      setStatusIsError(true);
+      setStatus(t.contact.error);
+      return;
+    }
+
+    setSending(true);
+    setStatus("");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New project request from ${form.name} — AFAQ Digital website`,
+          name: form.name,
+          business: form.business,
+          whatsapp: form.whatsapp,
+          service: form.service,
+          message: form.message
+        })
+      });
+      const result = await response.json();
+      if (!result.success) throw new Error(result.message || "Submission failed");
+      setStatusIsError(false);
+      setStatus(t.contact.success);
+      setForm(initialForm);
+      setTouched(false);
+    } catch {
+      setStatusIsError(true);
+      setStatus(t.contact.error);
+    } finally {
+      setSending(false);
+    }
   };
 
   const fieldClass = (key) => (touched && required.includes(key) && !form[key].trim() ? "is-invalid" : "");
@@ -106,10 +141,10 @@ export default function Contact({ t }) {
             <span>{t.contact.fields.message}</span>
             <textarea name="message" rows="5" value={form.message} onChange={updateField} />
           </label>
-          {status && <p className={`form-status ${invalid ? "is-error" : ""}`}>{status}</p>}
+          {status && <p className={`form-status ${statusIsError ? "is-error" : ""}`}>{status}</p>}
           <div className="form-actions">
-            <button className="btn btn--primary" type="submit">
-              {t.contact.submit}
+            <button className="btn btn--primary" type="submit" disabled={sending}>
+              {sending ? t.contact.sending : t.contact.submit}
             </button>
             <a className="btn btn--ghost" href={whatsappHref} target="_blank" rel="noreferrer">
               {t.contact.whatsapp}
