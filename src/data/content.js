@@ -35,13 +35,13 @@ export const content = {
       badge: "Premium Digital Agency",
       headline: "Websites That Make Your Business Look Trusted, Modern, and Ready to Grow.",
       description:
-        "AFAQ Digital builds premium websites, online stores, and smart dashboards that help growing businesses look professional and win more customers.",
+        "AFAQ Digital designs and builds premium websites, stores, and business systems that help growing brands look credible and turn visitors into real enquiries.",
       primary: "Start Your Project",
-      secondary: "See Our Work",
+      secondary: "View Our Work",
       trust: [
-        "Based in Dubai · Serving UAE, GCC & Worldwide",
-        "Bilingual EN / AR websites",
-        "Websites · Stores · Dashboards · AI Assistant"
+        "Responsive on every device",
+        "SEO-ready foundation",
+        "Proven with live projects"
       ],
       floatNote: "Built to grow"
     },
@@ -451,13 +451,13 @@ export const content = {
       badge: "وكالة رقمية بريميوم",
       headline: "مواقع احترافية تجعل عملك أكثر ثقة وحداثة وجاهزية للنمو.",
       description:
-        "تبني AFAQ Digital مواقع احترافية، متاجر إلكترونية، وداشبوردات ذكية تساعد المشاريع النامية على الظهور باحتراف وكسب عملاء أكثر.",
+        "تصمم AFAQ Digital وتبني مواقع بريميوم، متاجر، وأنظمة أعمال تساعد العلامات النامية على الظهور بثقة وتحويل الزوار إلى استفسارات حقيقية.",
       primary: "ابدأ مشروعك",
       secondary: "شاهد أعمالنا",
       trust: [
-        "مقرنا دبي · نخدم الإمارات، الخليج، والعالم",
-        "مواقع ثنائية اللغة عربي / إنجليزي",
-        "مواقع · متاجر · داشبوردات · مساعد ذكي"
+        "متجاوب على كل الأجهزة",
+        "أساس جاهز لتحسين الظهور",
+        "مثبت بمشاريع منشورة"
       ],
       floatNote: "جاهز للنمو"
     },
