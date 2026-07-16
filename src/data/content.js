@@ -129,66 +129,92 @@ export const content = {
       ]
     },
     portfolio: {
+      eyebrow: "SELECTED WORK",
       title: "Selected Work & Website Concepts",
       description:
-        "A focused collection of live projects and website concepts built for real business needs, clear customer actions, and professional online presence.",
+        "A curated selection of live projects and working website demos, clearly labeled so you can explore the work with confidence.",
       items: [
         {
           title: "Zawia Salon",
-          label: "Live Project",
+          statusKey: "live-project",
+          status: "Live Project",
+          type: "Salon Business Website",
           link: "https://zawianasr.com/",
+          image: "/images/portfolio/01-zawia-salon.webp",
+          imageAlt: "First viewport screenshot of the Zawia Salon website",
           description:
-            "Live salon website with services, booking actions, WhatsApp contact, location details, and a professional local business presence.",
-          impact: "Helped improve booking flow and supported a reported +30% sales growth.",
-          tags: ["Live Website", "Booking Flow", "WhatsApp", "Google Maps", "Local Business", "Sales Growth"],
-          button: "View Live Project"
+            "A salon business website with services, booking actions, WhatsApp contact, location details, and a polished local presence.",
+          impact: "A conversion-focused salon website with booking, WhatsApp, location, and service access.",
+          tags: ["Salon Website", "Booking Flow", "WhatsApp", "Google Maps"],
+          button: "Visit Website"
         },
         {
           title: "Muyed Mohammed — Video Editor Portfolio",
-          label: "Creator Portfolio",
+          statusKey: "live-project",
+          status: "Live Project",
+          type: "Creator Portfolio",
           link: "https://www.muyedmohammed.xyz/",
+          image: "/images/portfolio/02-muyed-mohammed.webp",
+          imageAlt: "First viewport screenshot of the Muyed Mohammed portfolio website",
           description:
-            "A premium cinematic portfolio website built for a video editor and creative professional, showcasing visual work, services, personal brand presence, and direct WhatsApp conversion.",
-          impact: "Positioned the creator with a stronger digital presence, clearer service presentation, and a more professional first impression for potential clients.",
-          tags: ["Video Editor", "Creator Portfolio", "Personal Brand", "Website", "WhatsApp"],
-          button: "View Project"
+            "A cinematic portfolio website for a video editor, presenting creative work, services, personal brand, and direct WhatsApp conversion.",
+          impact: "A focused creator portfolio built for stronger presentation and a more professional first impression.",
+          tags: ["Creator Portfolio", "Video Editor", "Personal Brand", "WhatsApp"],
+          button: "View Portfolio"
         },
         {
           title: "Beauty Pets",
-          label: "Website Concept",
+          statusKey: "live-demo",
+          status: "Live Demo",
+          type: "Pet Business Website",
           link: "https://faragabo04-web.github.io/beauty-pets/",
+          image: "/images/portfolio/03-beauty-pets.webp",
+          imageAlt: "First viewport screenshot of the Beauty Pets live demo website",
           description:
-            "Pet shop website concept for grooming, products, accessories, services, and easy customer contact.",
-          tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
-          button: "View Project"
+            "A working pet business website demo for grooming, products, accessories, services, and easy customer contact.",
+          tags: ["Pet Business", "Grooming", "Products", "Services"],
+          button: "Explore Live Demo"
         },
         {
           title: "VANTÉ NOIR",
-          label: "Premium Creative Website",
+          statusKey: "live-demo",
+          status: "Live Demo",
+          type: "E-Commerce Website",
           link: "https://ahmed-farouk-vante-noir.vercel.app/",
+          image: "/images/portfolio/04-vante-noir.webp",
+          imageAlt: "First viewport screenshot of the VANTÉ NOIR e-commerce live demo website",
           description:
-            "Premium creative website concept with elegant layout, strong branding, smooth sections, and luxury digital presentation.",
-          tags: ["Luxury Design", "Branding", "Portfolio", "Premium UI"],
-          button: "View Project"
+            "A working e-commerce website demo with luxury styling, strong branding, smooth sections, and premium product presentation.",
+          tags: ["E-Commerce", "Luxury Design", "Branding", "Premium UI"],
+          button: "Explore Live Demo"
         },
         {
           title: "M&M’s Play Area",
-          label: "Website Concept",
+          statusKey: "live-demo",
+          status: "Live Demo",
+          type: "Play Area Website",
           link: "https://faragabo04-web.github.io/MM-PLAYAREA-PREMIUM/",
+          image: "/images/portfolio/05-mm-play-area.webp",
+          imageAlt: "First viewport screenshot of the M&M’s Play Area live demo website",
           description:
-            "Family-focused website concept with pricing, gallery, WhatsApp booking, Google Maps, and clear sections for parents.",
-          tags: ["Kids Business", "Gallery", "Pricing", "Booking", "WhatsApp"],
-          button: "View Project"
+            "A working play area website demo with gallery, pricing presentation, WhatsApp booking, maps, and clear parent-focused sections.",
+          tags: ["Play Area", "Gallery", "Booking", "WhatsApp"],
+          button: "Explore Live Demo"
         },
         {
           title: "Cool Grand Restaurant",
-          label: "Website Project",
+          portfolioVisible: false,
+          statusKey: "live-demo",
+          status: "Live Demo",
+          type: "Restaurant Website",
           link: "https://faragabo04-web.github.io/Cool-Grand-restaurant/",
+          image: "",
+          imageAlt: "First viewport screenshot of the Cool Grand Restaurant live demo website",
           description:
-            "Modern restaurant website focused on menu presentation, food visuals, WhatsApp ordering, Google Maps, and fast customer action.",
-          impact: "Made menu browsing and ordering smoother for customers at home.",
-          tags: ["Restaurant", "Menu Experience", "WhatsApp Orders", "Google Maps", "Customer Journey"],
-          button: "View Project"
+            "A working restaurant website demo focused on menu presentation, food visuals, WhatsApp ordering, location, and fast customer action.",
+          impact: "A restaurant experience designed to make menu browsing and ordering feel clear and direct.",
+          tags: ["Restaurant", "Menu", "WhatsApp Orders", "Google Maps"],
+          button: "Explore Live Demo"
         }
       ]
     },
@@ -549,61 +575,87 @@ export const content = {
       ]
     },
     portfolio: {
+      eyebrow: "أعمال مختارة",
       title: "أعمال ونماذج مواقع مختارة",
       description:
-        "مجموعة مختارة من المشاريع المنشورة ونماذج المواقع المصممة لاحتياجات أعمال حقيقية وتجربة عميل واضحة.",
+        "مجموعة مختارة من المشاريع المباشرة والنماذج الحية، مع توضيح حالة كل مشروع لتصفح الأعمال بثقة ووضوح.",
       items: [
         {
           title: "Zawia Salon",
-          label: "مشروع منشور",
+          statusKey: "live-project",
+          status: "مشروع مباشر",
+          type: "موقع أعمال لصالون",
           link: "https://zawianasr.com/",
-          description: "موقع صالون منشور يعرض الخدمات، الحجز، واتساب، الموقع، وحضورًا محليًا احترافيًا.",
-          impact: "ساهم في تنظيم الحجز ودعم نمو المبيعات بنسبة مذكورة +30%.",
-          tags: ["Live Website", "Booking Flow", "WhatsApp", "Google Maps", "Local Business", "Sales Growth"],
-          button: "عرض المشروع"
+          image: "/images/portfolio/01-zawia-salon.webp",
+          imageAlt: "لقطة أول شاشة من موقع Zawia Salon",
+          description: "موقع أعمال لصالون يعرض الخدمات، الحجز، واتساب، الموقع، وحضورًا محليًا احترافيًا.",
+          impact: "موقع صالون يركز على سهولة الحجز والتواصل عبر واتساب والوصول للخدمات.",
+          tags: ["موقع صالون", "حجز", "WhatsApp", "Google Maps"],
+          button: "زيارة الموقع"
         },
         {
           title: "بورتفوليو مؤيد محمد — مونتير فيديو",
-          label: "بورتفوليو إبداعي",
+          statusKey: "live-project",
+          status: "مشروع مباشر",
+          type: "بورتفوليو لصانع محتوى",
           link: "https://www.muyedmohammed.xyz/",
+          image: "/images/portfolio/02-muyed-mohammed.webp",
+          imageAlt: "لقطة أول شاشة من موقع بورتفوليو مؤيد محمد",
           description:
-            "موقع بورتفوليو سينمائي احترافي مصمم لمونتير فيديو وصانع محتوى، يعرض الأعمال البصرية، الخدمات، الهوية الشخصية، ويوجه الزوار للتواصل المباشر عبر واتساب.",
-          impact: "يعزز حضور مؤيد الرقمي، يعرض شغله بشكل أقوى، ويمنح العملاء انطباعًا احترافيًا من أول زيارة.",
-          tags: ["Video Editor", "Creator Portfolio", "Personal Brand", "Website", "WhatsApp"],
-          button: "عرض المشروع"
+            "موقع بورتفوليو سينمائي لمونتير فيديو يعرض الأعمال، الخدمات، الهوية الشخصية، ويوجه الزوار للتواصل عبر واتساب.",
+          impact: "بورتفوليو مركز يمنح صانع المحتوى حضورًا أقوى وانطباعًا احترافيًا من أول زيارة.",
+          tags: ["بورتفوليو", "Video Editor", "Personal Brand", "WhatsApp"],
+          button: "عرض البورتفوليو"
         },
         {
           title: "Beauty Pets",
-          label: "نموذج موقع",
+          statusKey: "live-demo",
+          status: "نموذج مباشر",
+          type: "موقع أعمال لخدمات الحيوانات الأليفة",
           link: "https://faragabo04-web.github.io/beauty-pets/",
-          description: "نموذج موقع لمحل حيوانات أليفة يعرض العناية، المنتجات، الإكسسوارات، الخدمات، وطرق تواصل سهلة.",
-          tags: ["Pet Shop", "Grooming", "Products", "Services", "Local Business"],
-          button: "عرض المشروع"
+          image: "/images/portfolio/03-beauty-pets.webp",
+          imageAlt: "لقطة أول شاشة من نموذج Beauty Pets المباشر",
+          description: "نموذج موقع مباشر لخدمات الحيوانات الأليفة يعرض العناية، المنتجات، الإكسسوارات، الخدمات، وطرق تواصل سهلة.",
+          tags: ["Pet Business", "Grooming", "Products", "Services"],
+          button: "استعراض النموذج"
         },
         {
           title: "VANTÉ NOIR",
-          label: "موقع إبداعي بريميوم",
+          statusKey: "live-demo",
+          status: "نموذج مباشر",
+          type: "متجر إلكتروني",
           link: "https://ahmed-farouk-vante-noir.vercel.app/",
-          description: "موقع إبداعي بريميوم بتصميم فاخر، هوية قوية، أقسام ناعمة، وتجربة رقمية راقية.",
-          tags: ["Luxury Design", "Branding", "Portfolio", "Premium UI"],
-          button: "عرض المشروع"
+          image: "/images/portfolio/04-vante-noir.webp",
+          imageAlt: "لقطة أول شاشة من نموذج VANTÉ NOIR المباشر للمتجر الإلكتروني",
+          description: "نموذج متجر إلكتروني مباشر بتصميم فاخر، هوية قوية، أقسام ناعمة، وعرض منتجات بريميوم.",
+          tags: ["E-Commerce", "Luxury Design", "Branding", "Premium UI"],
+          button: "استعراض النموذج"
         },
         {
           title: "M&M’s Play Area",
-          label: "نموذج موقع",
+          statusKey: "live-demo",
+          status: "نموذج مباشر",
+          type: "موقع لمنطقة ألعاب",
           link: "https://faragabo04-web.github.io/MM-PLAYAREA-PREMIUM/",
-          description: "نموذج موقع موجه للعائلات يعرض الأسعار، الصور، الحجز عبر واتساب، خرائط Google، ومعلومات واضحة للآباء.",
-          tags: ["Kids Business", "Gallery", "Pricing", "Booking", "WhatsApp"],
-          button: "عرض المشروع"
+          image: "/images/portfolio/05-mm-play-area.webp",
+          imageAlt: "لقطة أول شاشة من نموذج M&M’s Play Area المباشر",
+          description: "نموذج موقع مباشر لمنطقة ألعاب يعرض الصور، الأسعار، الحجز عبر واتساب، خرائط Google، وأقسامًا واضحة للأهالي.",
+          tags: ["Play Area", "Gallery", "Booking", "WhatsApp"],
+          button: "استعراض النموذج"
         },
         {
           title: "Cool Grand Restaurant",
-          label: "مشروع موقع",
+          portfolioVisible: false,
+          statusKey: "live-demo",
+          status: "نموذج مباشر",
+          type: "موقع مطعم",
           link: "https://faragabo04-web.github.io/Cool-Grand-restaurant/",
-          description: "موقع مطعم حديث يركز على عرض المنيو، الصور، الطلب عبر واتساب، خرائط Google، وسرعة تفاعل العميل.",
-          impact: "جعل تصفح المنيو والطلب من المنزل أسهل وأكثر سلاسة.",
-          tags: ["Restaurant", "Menu Experience", "WhatsApp Orders", "Google Maps", "Customer Journey"],
-          button: "عرض المشروع"
+          image: "",
+          imageAlt: "لقطة أول شاشة من نموذج Cool Grand Restaurant المباشر",
+          description: "نموذج موقع مباشر لمطعم يركز على عرض المنيو، صور الطعام، الطلب عبر واتساب، الموقع، وسرعة تفاعل العميل.",
+          impact: "تجربة مطعم مصممة لجعل تصفح المنيو والطلب واضحًا ومباشرًا.",
+          tags: ["Restaurant", "Menu", "WhatsApp Orders", "Google Maps"],
+          button: "استعراض النموذج"
         }
       ]
     },
