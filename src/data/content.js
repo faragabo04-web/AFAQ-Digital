@@ -107,6 +107,7 @@ export const content = {
       ]
     },
     why: {
+      eyebrow: "PREMIUM EXECUTION",
       title: "Why Choose AFAQ Digital",
       items: [
         {
@@ -375,6 +376,7 @@ export const content = {
       ]
     },
     contact: {
+      eyebrow: "CONTACT",
       title: "Turn Your Idea Into a Real Digital Experience",
       description:
         "Tell us about your business, and we’ll help you build the right solution — a website, online store, dashboard, or smart system that supports your growth.",
@@ -397,6 +399,7 @@ export const content = {
       submit: "Start Your Project",
       whatsapp: "Chat on WhatsApp",
       cards: ["WhatsApp", "Google Form", "LinkedIn"],
+      linkedinCta: "Connect on LinkedIn",
       success: "Thank you! Your request was sent successfully. We'll get back to you soon — or message us on WhatsApp for the fastest reply.",
       required: "Please complete the highlighted fields.",
       sending: "Sending your details…",
@@ -435,12 +438,13 @@ export const content = {
         whatsapp: "WhatsApp",
         call: "Call",
         linkedin: "LinkedIn",
+        linkedinValue: "Connect on LinkedIn",
         instagram: "Instagram",
         facebook: "Facebook",
         comingSoon: "Coming Soon"
       },
       copyright: "© 2026 AFAQ Digital. All rights reserved.",
-      credit: "DESIGNED & DEVELOPED BY AHMED FAROUK"
+      credit: "DESIGNED & DEVELOPED BY TEAM AFAQ"
     }
   },
   ar: {
@@ -523,6 +527,7 @@ export const content = {
       ]
     },
     why: {
+      eyebrow: "تنفيذ احترافي",
       title: "لماذا تختار AFAQ Digital؟",
       items: [
         {
@@ -777,6 +782,7 @@ export const content = {
       ]
     },
     contact: {
+      eyebrow: "تواصل معنا",
       title: "حوّل فكرتك إلى تجربة رقمية حقيقية",
       description:
         "أخبرنا عن مشروعك، وسنساعدك في بناء الحل المناسب: موقع، متجر إلكتروني، داشبورد، أو نظام ذكي يدعم نمو عملك.",
@@ -799,6 +805,7 @@ export const content = {
       submit: "ابدأ مشروعك",
       whatsapp: "تواصل عبر واتساب",
       cards: ["WhatsApp", "Google Form", "LinkedIn"],
+      linkedinCta: "تواصل معنا عبر LinkedIn",
       success: "شكرًا لك! تم إرسال طلبك بنجاح وسنتواصل معك قريبًا — أو راسلنا عبر واتساب للرد الأسرع.",
       required: "من فضلك أكمل الحقول المحددة.",
       sending: "جارٍ إرسال بياناتك…",
@@ -844,12 +851,13 @@ export const content = {
         whatsapp: "WhatsApp",
         call: "اتصال",
         linkedin: "LinkedIn",
+        linkedinValue: "تواصل معنا عبر LinkedIn",
         instagram: "Instagram",
         facebook: "Facebook",
         comingSoon: "قريبًا"
       },
       copyright: "© 2026 AFAQ Digital. جميع الحقوق محفوظة.",
-      credit: "DESIGNED & DEVELOPED BY AHMED FAROUK"
+      credit: "DESIGNED & DEVELOPED BY TEAM AFAQ"
     }
   }
 };

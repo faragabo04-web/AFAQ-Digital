@@ -46,7 +46,7 @@ export default function Footer({ t }) {
   const contactItems = [
     { icon: "whatsapp", label: t.footer.contact.whatsapp, value: phoneDisplay, href: whatsappHref },
     { icon: "phone", label: t.footer.contact.call, value: phoneDisplay, href: phoneHref },
-    { icon: "linkedin", label: t.footer.contact.linkedin, value: "Ahmed Farouk", href: LINKEDIN_URL },
+    { icon: "linkedin", label: t.footer.contact.linkedin, value: t.footer.contact.linkedinValue, href: LINKEDIN_URL },
     { icon: "instagram", label: t.footer.contact.instagram, value: "@helloafaqdigital", href: INSTAGRAM_URL },
     { icon: "facebook", label: t.footer.contact.facebook, value: "helloafaqdigital", href: FACEBOOK_URL }
   ];

@@ -89,7 +89,7 @@ export default function Contact({ t }) {
     <section className="section section--contact" id="contact">
       <div className="shell contact-grid">
         <div className="contact-copy reveal">
-          <span className="section-kicker">Contact</span>
+          <span className="section-kicker">{t.contact.eyebrow}</span>
           <h2>{t.contact.title}</h2>
           <p>{t.contact.description}</p>
           <div className="contact-cards">
@@ -104,7 +104,7 @@ export default function Contact({ t }) {
             </a>
             <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
               <span>{t.contact.cards[2]}</span>
-              <strong>Ahmed Farouk</strong>
+              <strong>{t.contact.linkedinCta}</strong>
             </a>
           </div>
         </div>
