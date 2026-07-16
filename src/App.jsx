@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import Services from "./components/Services.jsx";
+import ServicesTicker from "./components/ServicesTicker.jsx";
 import WhyChoose from "./components/WhyChoose.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Process from "./components/Process.jsx";
@@ -44,6 +45,7 @@ export default function App() {
       <Header lang={lang} t={t} onToggleLanguage={toggleLanguage} />
       <main>
         <Hero t={t} />
+        <ServicesTicker t={t} />
         <Services t={t} onShowProof={showServiceProof} />
         <WhyChoose t={t} />
         <Portfolio t={t} proofFilter={proofFilter} onClearProofFilter={() => setProofFilter(null)} />

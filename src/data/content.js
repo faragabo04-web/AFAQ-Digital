@@ -45,6 +45,17 @@ export const content = {
       ],
       floatNote: "Built to grow"
     },
+    servicesTicker: {
+      label: "AFAQ core services",
+      items: [
+        "Premium Websites",
+        "E-Commerce Stores",
+        "Google Sheets Dashboards",
+        "Google Business Profile",
+        "LinkedIn Optimization",
+        "AI Website Assistant"
+      ]
+    },
     services: {
       title: "Digital Solutions Built for Your Business Growth",
       description:
@@ -279,74 +290,89 @@ export const content = {
     process: {
       title: "A Clear Process from Idea to Launch",
       description:
-        "We keep every project organized with clear steps, smooth communication, and focused execution.",
+        "A compact journey that keeps your website, store, or business system focused from the first conversation to launch.",
       steps: [
         {
           number: "01",
           title: "Understand",
-          text: "We start by understanding your business, goals, services, audience, and what your customers need to see."
+          text: "We learn about your business, audience, goals, and the result you need."
         },
         {
           number: "02",
           title: "Plan",
-          text: "We organize the website structure, sections, content flow, features, and customer journey before design starts."
+          text: "We organize the structure, content, features, and customer journey before design starts."
         },
         {
           number: "03",
           title: "Design",
-          text: "We create a premium visual direction that matches your brand and makes the experience clear and attractive."
+          text: "We create a focused visual direction that matches your brand and market."
         },
         {
           number: "04",
           title: "Build",
-          text: "We develop the website, store, dashboard, or system with clean structure, responsive layout, and required integrations."
+          text: "We develop, test, optimize, and prepare the experience for real use."
         },
         {
           number: "05",
           title: "Launch & Support",
-          text: "We review, refine, launch, and stay available for updates, improvements, and future growth."
+          text: "We launch carefully and remain available for updates and improvements."
         }
       ]
     },
     packages: {
+      eyebrow: "TAILORED SOLUTIONS",
       title: "Choose the Right Solution for Your Business",
       description:
-        "Start with a website, grow with better visibility, or organize your business with smart dashboards and automation.",
-      cta: "Request This Package",
-      addons: "AI Assistant · LinkedIn · Google Business Profile · Future Updates",
+        "Start with the direction that fits your current goals. The final scope, timeline, and quotation are tailored after we understand your business.",
+      cta: "Request a Tailored Quote",
+      quoteNote:
+        "Every business is different. Final scope, timeline, hosting/domain requirements, maintenance, and quotation are confirmed after consultation.",
       items: [
         {
           title: "Website Launch",
-          text: "A clean, premium website for businesses that need a professional online presence.",
-          includes: ["Premium website", "Responsive design", "WhatsApp contact", "Google Maps", "Contact form", "Basic SEO structure"]
+          fit: "For businesses that need a professional online presence.",
+          text: "A focused launch path for presenting your business clearly and guiding visitors toward enquiry or booking.",
+          scope: "Best when your priority is a credible first digital home.",
+          includes: [
+            "Premium business website",
+            "Responsive design",
+            "WhatsApp contact",
+            "Google Maps or location",
+            "Contact or enquiry form",
+            "Foundational SEO structure"
+          ]
         },
         {
           title: "Online Growth",
-          text: "A stronger solution for businesses that need a website, online store, Google presence, and customer-focused structure.",
+          badge: "Growth Focus",
+          fit: "For businesses that need stronger presence and customer flow.",
+          text: "A broader path for improving how customers discover, understand, and contact your business online.",
+          scope: "Best when visibility, presentation, and conversion need to work together.",
           includes: [
-            "Website or e-commerce store",
-            "Product/service showcase",
-            "WhatsApp & contact actions",
+            "Website or e-commerce direction",
+            "Service or product presentation",
+            "Customer conversion structure",
             "Google Business Profile support",
-            "LinkedIn profile option",
-            "Customer-focused structure"
+            "LinkedIn presence option",
+            "Contact and WhatsApp actions"
           ]
         },
         {
           title: "Smart Business",
-          text: "Dashboards, automation, reports, and smart assistants to help your business work more efficiently.",
+          fit: "For businesses that need organization, reporting, or smart tools.",
+          text: "A practical systems path for making daily operations clearer, easier to track, and ready to improve over time.",
+          scope: "Best when internal workflows need more structure and visibility.",
           includes: [
             "Google Sheets Dashboard",
-            "Reports & tracking",
+            "Reports and tracking",
             "Google Apps Script automation",
-            "AI Website Assistant",
             "Forms and workflows",
-            "Future improvements"
+            "AI Website Assistant",
+            "Future system improvements"
           ]
         }
       ]
-    },
-    about: {
+    },    about: {
       title: "About AFAQ Digital",
       subtitle: "Your Digital Partner for Growth",
       copy: [
@@ -361,50 +387,36 @@ export const content = {
       locations: ["Dubai", "UAE", "GCC", "Worldwide"]
     },
     faq: {
-      title: "Frequently Asked Questions",
-      subtitle: "Questions you may have before starting your project",
+      title: "Questions, Answered.",
+      subtitle: "Clear answers before we start.",
       items: [
         {
           question: "How long does a project take?",
-          answer:
-            "It depends on the project size and type, but most websites take one to three weeks. We define a clear timeline before starting."
+          answer: "Most website projects take one to three weeks, depending on scope and content readiness. We confirm the timeline clearly before work begins."
         },
         {
-          question: "How much do your services cost?",
-          answer:
-            "Cost depends on your needs and project size. Contact us to receive a suitable quote tailored to your project."
+          question: "What do you need from me to start?",
+          answer: "We need your business details, goals, service information, brand assets if available, and any examples you like. If something is missing, Team AFAQ can guide you through it."
         },
         {
-          question: "Do you provide support after delivery?",
-          answer: "Yes, we provide technical support and updates after launch to keep your project running smoothly."
+          question: "Can you work with my existing brand?",
+          answer: "Yes. We can build around your current logo, colors, and content, or refine the digital presentation while keeping the brand recognizable."
         },
         {
-          question: "Can you build a website or online store?",
-          answer:
-            "Yes, we build professional websites and online stores that help you showcase services or products, receive orders easily, and attract more customers."
+          question: "Do you provide support after launch?",
+          answer: "Yes. We provide post-launch support for technical fixes, updates, and practical improvements based on your project needs."
         },
         {
-          question: "Do you work with clients outside Dubai or the UAE?",
-          answer:
-            "Yes, AFAQ Digital is based in Dubai, and we serve clients across the UAE, GCC, and worldwide remotely through clear communication and organized steps."
-        },
-        {
-          question: "Do you manage Google Business Profile and LinkedIn?",
-          answer:
-            "Yes, we improve Google Business Profile and LinkedIn through updated information, photos, services, descriptions, and professional positioning to build trust and attract customers."
-        },
-        {
-          question: "Will I own the project after delivery?",
-          answer:
-            "Yes, after final delivery, the project files and usage rights belong to you, and you can use or transfer them as needed."
+          question: "How is pricing determined?",
+          answer: "Pricing depends on scope, features, content, timeline, and the level of customization required. We review the details first, then prepare a suitable quotation."
         }
       ]
     },
     contact: {
       eyebrow: "CONTACT",
-      title: "Turn Your Idea Into a Real Digital Experience",
+      title: "Let’s Build What’s Next.",
       description:
-        "Tell us about your business, and we’ll help you build the right solution — a website, online store, dashboard, or smart system that supports your growth.",
+        "Tell us what you need. Team AFAQ will reply with the right next step.",
       fields: {
         name: "Full Name",
         business: "Business Name",
@@ -489,6 +501,17 @@ export const content = {
         "مثبت بمشاريع منشورة"
       ],
       floatNote: "جاهز للنمو"
+    },
+    servicesTicker: {
+      label: "خدمات AFAQ الأساسية",
+      items: [
+        "مواقع احترافية",
+        "متاجر إلكترونية",
+        "لوحات تحكم Google Sheets",
+        "الملف التجاري على Google",
+        "تحسين LinkedIn",
+        "مساعد ذكي للموقع"
+      ]
     },
     services: {
       title: "حلول رقمية مصممة لنمو مشروعك",
@@ -717,73 +740,88 @@ export const content = {
     },
     process: {
       title: "خطوات واضحة من الفكرة إلى الإطلاق",
-      description: "نحافظ على تنظيم كل مشروع من خلال خطوات واضحة، تواصل سلس، وتنفيذ مركز على الهدف.",
+      description: "رحلة مختصرة ومنظمة تحافظ على تركيز الموقع أو المتجر أو نظام العمل من أول نقاش حتى الإطلاق.",
       steps: [
         {
           number: "01",
           title: "الفهم",
-          text: "نبدأ بفهم نشاطك، أهدافك، خدماتك، جمهورك، وما يحتاج عملاؤك إلى رؤيته."
+          text: "نفهم طبيعة عملك، جمهورك، أهدافك، والنتيجة التي تحتاج الوصول إليها."
         },
         {
           number: "02",
           title: "التخطيط",
-          text: "ننظم هيكل الموقع، الأقسام، تدفق المحتوى، المميزات، ورحلة العميل قبل بدء التصميم."
+          text: "ننظم الهيكل، المحتوى، المميزات، ورحلة العميل قبل بدء التصميم."
         },
         {
           number: "03",
           title: "التصميم",
-          text: "نصمم اتجاهًا بصريًا راقيًا يناسب علامتك ويجعل التجربة واضحة وجذابة."
+          text: "نصمم اتجاهًا بصريًا مركزًا يناسب علامتك وسوقك."
         },
         {
           number: "04",
           title: "التطوير",
-          text: "نطوّر الموقع، المتجر، الداشبورد، أو النظام بهيكل نظيف، تصميم متجاوب، وربط تقني مناسب."
+          text: "نطور، نختبر، نحسن، ونجهز التجربة للاستخدام الحقيقي."
         },
         {
           number: "05",
           title: "الإطلاق والدعم",
-          text: "نراجع، نحسن، نطلق المشروع، ونبقى متاحين للتحديثات والتحسينات المستقبلية."
+          text: "نطلق المشروع بعناية ونبقى متاحين للتحديثات والتحسينات."
         }
       ]
     },
     packages: {
-      title: "اختر الحل المناسب لمشروعك",
-      description: "ابدأ بموقع احترافي، طوّر ظهورك الرقمي، أو نظّم عملك من خلال داشبوردات وأتمتة ذكية.",
-      cta: "اطلب هذه الباقة",
-      addons: "مساعد ذكي · LinkedIn · Google Business Profile · تحديثات مستقبلية",
+      eyebrow: "حلول مخصصة",
+      title: "اختر الحل المناسب لعملك",
+      description: "ابدأ بالمسار الأقرب لاحتياجاتك الحالية، ثم نحدد النطاق والمدة وعرض السعر بعد فهم طبيعة عملك وأهدافك.",
+      cta: "اطلب عرض سعر مخصص",
+      quoteNote:
+        "كل مشروع له احتياجات مختلفة. يتم تأكيد النطاق والمدة ومتطلبات الاستضافة والدومين والصيانة وعرض السعر بعد الاستشارة.",
       items: [
         {
           title: "Website Launch",
-          text: "موقع احترافي للمشاريع التي تحتاج إلى حضور إلكتروني واضح وموثوق.",
-          includes: ["موقع بريميوم", "تصميم متجاوب", "ربط واتساب", "خرائط Google", "نموذج تواصل", "هيكل SEO أساسي"]
+          fit: "للأعمال التي تحتاج إلى حضور إلكتروني احترافي.",
+          text: "مسار إطلاق مركز يعرض نشاطك بوضوح ويوجه الزائر نحو الاستفسار أو الحجز.",
+          scope: "مناسب عندما تكون الأولوية لبناء واجهة رقمية موثوقة لأول مرة.",
+          includes: [
+            "موقع أعمال بريميوم",
+            "تصميم متجاوب",
+            "تواصل عبر واتساب",
+            "خرائط Google أو الموقع",
+            "نموذج تواصل أو استفسار",
+            "هيكل SEO تأسيسي"
+          ]
         },
         {
           title: "Online Growth",
-          text: "حل أقوى للمشاريع التي تحتاج إلى موقع، متجر إلكتروني، ظهور على Google، وتجربة موجهة للعملاء.",
+          badge: "تركيز على النمو",
+          fit: "للأعمال التي تحتاج حضورًا أقوى ورحلة عميل أوضح.",
+          text: "مسار أوسع لتحسين طريقة اكتشاف العملاء لعملك وفهم خدماتك والتواصل معك.",
+          scope: "مناسب عندما يحتاج الظهور، العرض، والتحويل إلى العمل معًا.",
           includes: [
-            "موقع أو متجر إلكتروني",
-            "عرض المنتجات أو الخدمات",
-            "أزرار واتساب وتواصل",
+            "اتجاه موقع أو متجر إلكتروني",
+            "عرض الخدمات أو المنتجات",
+            "هيكل يركز على تحويل العملاء",
             "دعم Google Business Profile",
-            "خيار تحسين LinkedIn",
-            "هيكل موجه للعملاء"
+            "خيار حضور LinkedIn",
+            "أزرار تواصل وواتساب"
           ]
         },
         {
           title: "Smart Business",
-          text: "داشبوردات، أتمتة، تقارير، ومساعد ذكي يساعد مشروعك على العمل بكفاءة أكبر.",
+          fit: "للأعمال التي تحتاج تنظيمًا، تقارير، أو أدوات ذكية.",
+          text: "مسار أنظمة عملي يجعل العمليات اليومية أوضح وأسهل في المتابعة وقابلة للتطوير لاحقًا.",
+          scope: "مناسب عندما تحتاج خطوات العمل الداخلية إلى هيكل ورؤية أوضح.",
           includes: [
             "داشبورد Google Sheets",
             "تقارير ومتابعة",
             "أتمتة Google Apps Script",
-            "مساعد ذكي للموقع",
             "نماذج وخطوات عمل",
-            "تحسينات مستقبلية"
+            "مساعد ذكي للموقع",
+            "تحسينات مستقبلية للنظام"
           ]
         }
       ]
-    },
-    about: {
+    },    about: {
       title: "من نحن",
       subtitle: "شريكك الرقمي نحو النمو",
       copy: [
@@ -798,44 +836,36 @@ export const content = {
       locations: ["Dubai", "UAE", "GCC", "Worldwide"]
     },
     faq: {
-      title: "الأسئلة الشائعة",
-      subtitle: "أسئلة قد تدور في ذهنك قبل بدء مشروعك",
+      title: "إجابات واضحة قبل أن نبدأ",
+      subtitle: "أهم ما تحتاج معرفته قبل بدء مشروعك.",
       items: [
         {
           question: "كم يستغرق تنفيذ المشروع؟",
-          answer: "يعتمد على حجم ونوع المشروع، لكن معظم المواقع تستغرق من أسبوع إلى ثلاثة أسابيع. نحدّد لك جدولًا زمنيًا واضحًا قبل البدء."
+          answer: "تستغرق معظم مشاريع المواقع من أسبوع إلى ثلاثة أسابيع حسب نطاق العمل وجاهزية المحتوى. نوضح لك الجدول الزمني قبل البدء."
         },
         {
-          question: "ما تكلفة الخدمات؟",
-          answer: "تختلف حسب احتياجك وحجم المشروع. تواصل معنا للحصول على عرض سعر مناسب ومخصّص لمشروعك."
+          question: "ماذا تحتاجون مني للبدء؟",
+          answer: "نحتاج معلومات نشاطك، أهداف المشروع، تفاصيل الخدمات، وأي عناصر هوية متوفرة مثل الشعار أو الصور. وإذا كان هناك شيء غير جاهز، يساعدك فريق AFAQ في ترتيبه."
         },
         {
-          question: "هل تقدّمون دعمًا بعد التسليم؟",
-          answer: "نعم، نوفّر دعمًا فنيًا وتحديثات بعد الإطلاق لضمان عمل مشروعك بسلاسة."
+          question: "هل يمكنكم العمل على هويتي الحالية؟",
+          answer: "نعم. يمكننا البناء على الشعار والألوان والمحتوى الحالي، أو تحسين الظهور الرقمي مع الحفاظ على هوية المشروع."
         },
         {
-          question: "هل يمكن تنفيذ موقع أو متجر إلكتروني؟",
-          answer: "نعم، ننفّذ مواقع احترافية ومتاجر إلكترونية تساعدك على عرض خدماتك أو منتجاتك، استقبال الطلبات بسهولة، وجذب عملاء أكثر."
+          question: "هل تقدمون دعمًا بعد الإطلاق؟",
+          answer: "نعم. نوفر دعمًا بعد الإطلاق للتعديلات الفنية، التحديثات، والتحسينات العملية حسب احتياج المشروع."
         },
         {
-          question: "هل تعملون مع عملاء خارج دبي أو الإمارات؟",
-          answer: "نعم، مقر AFAQ Digital في دبي، ونخدم العملاء داخل الإمارات وخارجها عن بُعد من خلال تواصل واضح وخطوات عمل منظمة."
-        },
-        {
-          question: "هل تديرون Google Business Profile وLinkedIn؟",
-          answer: "نعم، نحسّن صفحة Google Business Profile وحساب LinkedIn من حيث البيانات، الصور، الخدمات، الوصف، وطريقة الظهور لزيادة الثقة وجذب العملاء."
-        },
-        {
-          question: "هل أملك حقوق المشروع بعد التسليم؟",
-          answer: "نعم، بعد التسليم النهائي تكون ملفات المشروع وحقوق الاستخدام ملكك بالكامل، ويمكنك استخدامها أو نقلها حسب احتياجك."
+          question: "كيف يتم تحديد السعر؟",
+          answer: "يعتمد السعر على نطاق العمل، المزايا المطلوبة، المحتوى، الجدول الزمني، ومستوى التخصيص. نراجع التفاصيل أولًا ثم نجهز عرضًا مناسبًا."
         }
       ]
     },
     contact: {
       eyebrow: "تواصل معنا",
-      title: "حوّل فكرتك إلى تجربة رقمية حقيقية",
+      title: "لنبدأ خطوتك الرقمية القادمة",
       description:
-        "أخبرنا عن مشروعك، وسنساعدك في بناء الحل المناسب: موقع، متجر إلكتروني، داشبورد، أو نظام ذكي يدعم نمو عملك.",
+        "أخبرنا بما تحتاجه، وسيتواصل معك فريق AFAQ بالخطوة المناسبة.",
       fields: {
         name: "الاسم",
         business: "اسم النشاط التجاري",
