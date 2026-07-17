@@ -30,6 +30,16 @@ export const content = {
     dir: "ltr",
     langLabel: "العربية",
     navCta: "Start Your Project",
+    servicesNav: {
+      toggleLabel: "Show services",
+      items: [
+        { label: "Premium Websites", href: "#service-websites" },
+        { label: "E-Commerce Stores", href: "#service-ecommerce" },
+        { label: "Business Systems", href: "#service-systems" },
+        { label: "AI Automation", href: "#service-ai" },
+        { label: "View All Services", href: "#services" }
+      ]
+    },
     hero: {
       badge: "Premium Digital Agency",
       headline: "Websites That Make Your Business Look Trusted, Modern, and Ready to Grow.",
@@ -312,19 +322,20 @@ export const content = {
           ]
         }
       ]
-    },    about: {
-      title: "About AFAQ Digital",
-      subtitle: "Your Digital Partner for Growth",
+    },
+    about: {
+      title: "Digital Solutions Built Around Your Business",
+      subtitle: "YOUR DIGITAL PARTNER FOR GROWTH",
       copy: [
-        "AFAQ Digital is a premium digital agency based in Dubai, helping businesses across the UAE, GCC, and worldwide build a stronger digital presence through websites, online stores, dashboards, and smart digital solutions.",
-        "We combine premium design, business thinking, and modern technology to create solutions that look professional, work smoothly, and support real business growth."
+        "AFAQ Digital helps businesses build a clearer and more connected digital presence through premium websites, e-commerce, business systems, and practical AI automation.",
+        "We bring design, technology, and business thinking into one focused direction—so your digital tools look professional, work smoothly, and support real growth."
       ],
-      qualityTitle: "Quality Without Compromise",
-      qualityText:
-        "We care about every detail — structure, content, performance, and the final experience your customers see and interact with.",
       founder:
         "Founded by Ahmed Farouk, AFAQ Digital brings together business understanding, design taste, and practical digital execution.",
-      locations: ["Dubai", "UAE", "GCC", "Worldwide"]
+      locations: ["Dubai", "UAE", "GCC", "Worldwide"],
+      ecosystem: ["Websites", "E-Commerce", "Business Systems", "AI Automation"],
+      visualLabel: "AFAQ Digital ecosystem: websites, e-commerce, business systems, and AI automation connected around the business",
+      marketsLabel: "Markets served"
     },
     faq: {
       title: "Questions, Answered.",
@@ -382,6 +393,28 @@ export const content = {
       sending: "Sending your details…",
       error: "Something went wrong while sending. Please try again, or contact us directly on WhatsApp."
     },
+    leadCapture: {
+      eyebrow: "AFAQ PROJECT ENQUIRY",
+      title: "Let's Find the Right Next Step",
+      intro: "Tell us what you're planning. We'll review your request and suggest the most suitable direction for your business.",
+      close: "Close project enquiry",
+      fields: {
+        name: "Full Name",
+        email: "Email",
+        whatsapp: "WhatsApp Number — optional",
+        service: "Service Needed",
+        brief: "Short Project Brief — optional"
+      },
+      options: ["Premium Website", "E-Commerce Store", "Business System", "AI Automation", "Not Sure Yet"],
+      briefPlaceholder: "What would you like to build or improve?",
+      submit: "Send My Request",
+      sending: "Sending...",
+      success: "Thank you. Your request was sent successfully.",
+      required: "Please complete your name, email, and service needed.",
+      error: "Something went wrong while sending. Please try again from the contact section.",
+      privacy: "No commitment. Your details are used only to respond to your request.",
+      whatsappLink: "Prefer WhatsApp? Chat with us"
+    },
     assistant: {
       name: "AFAQ Assistant",
       subtitle: "Powered by AFAQ AI",
@@ -428,6 +461,16 @@ export const content = {
     dir: "rtl",
     langLabel: "English",
     navCta: "ابدأ مشروعك",
+    servicesNav: {
+      toggleLabel: "عرض الخدمات",
+      items: [
+        { label: "مواقع احترافية", href: "#service-websites" },
+        { label: "متاجر إلكترونية", href: "#service-ecommerce" },
+        { label: "أنظمة أعمال", href: "#service-systems" },
+        { label: "أتمتة ذكية", href: "#service-ai" },
+        { label: "عرض كل الخدمات", href: "#services" }
+      ]
+    },
     hero: {
       badge: "وكالة رقمية بريميوم",
       headline: "مواقع احترافية تجعل عملك أكثر ثقة وحداثة وجاهزية للنمو.",
@@ -703,19 +746,20 @@ export const content = {
           ]
         }
       ]
-    },    about: {
-      title: "من نحن",
+    },
+    about: {
+      title: "حلول رقمية تدور حول عملك",
       subtitle: "شريكك الرقمي نحو النمو",
       copy: [
-        "AFAQ Digital وكالة رقمية بريميوم مقرها دبي، تساعد المشاريع داخل الإمارات، دول الخليج، وحول العالم على بناء حضور رقمي أقوى من خلال المواقع، المتاجر الإلكترونية، الداشبوردات، والحلول الذكية.",
-        "نمزج بين التصميم الراقي، التفكير التجاري، والتقنية الحديثة لنقدم حلولًا تظهر باحتراف، تعمل بسلاسة، وتدعم نموًا حقيقيًا للأعمال."
+        "تساعد AFAQ Digital الشركات على بناء حضور رقمي أوضح وأكثر ترابطًا من خلال المواقع الاحترافية، والمتاجر الإلكترونية، وأنظمة الأعمال، وحلول أتمتة الذكاء الاصطناعي العملية.",
+        "نجمع التصميم والتقنية وفهم الأعمال في اتجاه واحد واضح، لتظهر أدواتك الرقمية باحتراف، وتعمل بسلاسة، وتدعم نموًا حقيقيًا."
       ],
-      qualityTitle: "جودة بلا تنازلات",
-      qualityText:
-        "نهتم بكل تفصيلة — من الهيكل والمحتوى والأداء إلى التجربة النهائية التي يراها ويتعامل معها عملاؤك.",
       founder:
         "تأسست AFAQ Digital على يد Ahmed Farouk لتجمع بين فهم الأعمال، الذوق التصميمي، والتنفيذ الرقمي العملي.",
-      locations: ["Dubai", "UAE", "GCC", "Worldwide"]
+      locations: ["Dubai", "UAE", "GCC", "Worldwide"],
+      ecosystem: ["المواقع", "المتاجر الإلكترونية", "أنظمة الأعمال", "أتمتة الذكاء الاصطناعي"],
+      visualLabel: "منظومة AFAQ Digital الرقمية: المواقع والمتاجر الإلكترونية وأنظمة الأعمال وأتمتة الذكاء الاصطناعي حول عملك",
+      marketsLabel: "الأسواق التي نخدمها"
     },
     faq: {
       title: "إجابات واضحة قبل أن نبدأ",
@@ -772,6 +816,28 @@ export const content = {
       required: "من فضلك أكمل الحقول المحددة.",
       sending: "جارٍ إرسال بياناتك…",
       error: "حدث خطأ أثناء الإرسال. حاول مرة أخرى أو تواصل معنا مباشرة عبر واتساب."
+    },
+    leadCapture: {
+      eyebrow: "طلب مشروع جديد",
+      title: "خلّينا نحدد الخطوة المناسبة لمشروعك",
+      intro: "شاركنا فكرتك أو احتياجك، وسنراجع طلبك ونقترح المسار الأنسب لعملك.",
+      close: "إغلاق نموذج طلب المشروع",
+      fields: {
+        name: "الاسم بالكامل",
+        email: "البريد الإلكتروني",
+        whatsapp: "رقم واتساب — اختياري",
+        service: "الخدمة المطلوبة",
+        brief: "نبذة قصيرة عن المشروع — اختياري"
+      },
+      options: ["موقع احترافي", "متجر إلكتروني", "نظام لإدارة العمل", "أتمتة ذكية", "لم أحدد بعد"],
+      briefPlaceholder: "ما الذي تريد تنفيذه أو تطويره؟",
+      submit: "إرسال طلبي",
+      sending: "جارٍ الإرسال...",
+      success: "شكرًا لك. تم إرسال طلبك بنجاح.",
+      required: "من فضلك أكمل الاسم والبريد الإلكتروني والخدمة المطلوبة.",
+      error: "حدث خطأ أثناء الإرسال. حاول مرة أخرى من قسم التواصل.",
+      privacy: "بدون أي التزام. نستخدم بياناتك فقط للرد على طلبك.",
+      whatsappLink: "تفضّل واتساب؟ تحدث معنا"
     },
     assistant: {
       name: "مساعد AFAQ الذكي",

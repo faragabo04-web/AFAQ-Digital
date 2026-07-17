@@ -13,6 +13,12 @@ const checkIcon = (
   </svg>
 );
 
+const serviceAnchors = {
+  websites: "service-websites",
+  ecommerce: "service-ecommerce",
+  dashboards: "service-systems",
+  "ai-assistant": "service-ai"
+};
 const covers = {
   websites: premiumWebsitesCover,
   ecommerce: ecommerceStoresCover,
@@ -60,7 +66,7 @@ export default function Services({ t, onShowProof }) {
         <SectionIntro title={t.services.title} description={t.services.description} />
         <div className="svc2-grid">
           {t.services.items.map((item) => (
-            <article className={`svc2-card svc2-card--${item.id} service-card reveal`} id={`service-${item.id}`} key={item.id}>
+            <article className={`svc2-card svc2-card--${item.id} service-card reveal`} id={serviceAnchors[item.id] ?? `service-${item.id}`} key={item.id}>
               <figure className="svc2-cover">
                 <img src={covers[item.id]} alt="" loading="lazy" decoding="async" />
               </figure>
