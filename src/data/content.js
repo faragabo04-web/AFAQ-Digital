@@ -1,7 +1,6 @@
 export const WHATSAPP_NUMBER = "971504131228";
 export const WHATSAPP_URL = "https://wa.me/971504131228";
 export const PHONE_DISPLAY = "+971 50 413 1228";
-export const PHONE_DISPLAY_LOCAL = "050 413 1228";
 // Web3Forms access key — get one free at https://web3forms.com (routes form
 // submissions to the AFAQ inbox; the key is public-safe). Until the real key
 // replaces this TODO value, the contact form shows an error and directs

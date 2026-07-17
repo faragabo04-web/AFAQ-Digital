@@ -113,17 +113,17 @@ export default function Contact({ t }) {
           <div className="form-row">
             <label>
               <span>{t.contact.fields.name}</span>
-              <input className={fieldClass("name")} name="name" value={form.name} onChange={updateField} />
+              <input className={fieldClass("name")} type="text" name="name" autoComplete="name" value={form.name} onChange={updateField} />
             </label>
             <label>
               <span>{t.contact.fields.business}</span>
-              <input name="business" value={form.business} onChange={updateField} />
+              <input type="text" name="business" autoComplete="organization" value={form.business} onChange={updateField} />
             </label>
           </div>
           <div className="form-row">
             <label>
               <span>{t.contact.fields.whatsapp}</span>
-              <input className={fieldClass("whatsapp")} name="whatsapp" value={form.whatsapp} onChange={updateField} />
+              <input className={fieldClass("whatsapp")} type="tel" name="whatsapp" autoComplete="tel" value={form.whatsapp} onChange={updateField} />
             </label>
             <label>
               <span>{t.contact.fields.service}</span>
