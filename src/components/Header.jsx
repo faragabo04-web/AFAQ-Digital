@@ -5,6 +5,7 @@ import Logo from "./Logo.jsx";
 export default function Header({ lang, t, onToggleLanguage }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navPanelId = "primary-navigation";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +28,7 @@ export default function Header({ lang, t, onToggleLanguage }) {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls={navPanelId}
           onClick={() => setOpen((value) => !value)}
         >
           <span />
@@ -34,7 +36,7 @@ export default function Header({ lang, t, onToggleLanguage }) {
           <span />
         </button>
 
-        <div className={`nav-panel ${open ? "is-open" : ""}`}>
+        <div id={navPanelId} className={`nav-panel ${open ? "is-open" : ""}`}>
           <div className="nav-links">
             {navLinks.map((link) => (
               <a key={link.id} href={`#${link.id}`} onClick={closeMenu}>

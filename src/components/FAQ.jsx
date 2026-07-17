@@ -11,13 +11,21 @@ export default function FAQ({ t }) {
         <div className="faq-list">
           {t.faq.items.map((item, index) => {
             const open = openIndex === index;
+            const buttonId = `faq-question-${index + 1}`;
+            const answerId = `faq-answer-${index + 1}`;
             return (
               <article className={`faq-item ${open ? "is-open" : ""}`} key={item.question}>
-                <button type="button" onClick={() => setOpenIndex(open ? -1 : index)} aria-expanded={open}>
+                <button
+                  type="button"
+                  id={buttonId}
+                  onClick={() => setOpenIndex(open ? -1 : index)}
+                  aria-expanded={open}
+                  aria-controls={answerId}
+                >
                   <span>{item.question}</span>
                   <span className="faq-plus">{open ? "−" : "+"}</span>
                 </button>
-                <div className="faq-answer">
+                <div className="faq-answer" id={answerId} role="region" aria-labelledby={buttonId}>
                   <p>{item.answer}</p>
                 </div>
               </article>

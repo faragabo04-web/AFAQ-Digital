@@ -1,20 +1,16 @@
+import burjKhalifaHero from "../assets/hero/afaq-burj-khalifa-hero-final.png";
+
 export default function Hero({ t }) {
   return (
     <section className="hero section" id="home">
       <picture className="hero-media" aria-hidden="true">
-        <source
-          media="(max-width: 760px)"
-          srcSet="/images/lifestyle-5-mobile.webp"
-          type="image/webp"
-        />
-        <source media="(max-width: 760px)" srcSet="/images/lifestyle-5-mobile.jpg" type="image/jpeg" />
-        <source srcSet="/images/lifestyle-5.webp" type="image/webp" />
+        <source srcSet={burjKhalifaHero} type="image/png" />
         <img
           className="hero-media-image"
-          src="/images/lifestyle-5.jpg"
+          src={burjKhalifaHero}
           alt=""
-          width="1024"
-          height="1024"
+          width="1672"
+          height="941"
           loading="eager"
           decoding="async"
         />

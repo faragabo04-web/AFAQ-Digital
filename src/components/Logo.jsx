@@ -3,18 +3,15 @@ import { useState } from "react";
 export default function Logo({ variant = "header", className = "" }) {
   const [failed, setFailed] = useState(false);
   const sources = {
-    // TODO: Replace fallback with public/afaq-digital-header-logo.png
     header: "/afaq-digital-header-logo.png",
-    // TODO: Replace fallback with public/afaq-digital-main-logo.png
     main: "/afaq-digital-main-logo.png",
-    // TODO: Replace fallback with public/afaq-digital-icon.png
     icon: "/afaq-digital-icon.png"
   };
 
   const dims = {
     header: { width: 218, height: 68 },
-    main:   { width: 600, height: 595 },
-    icon:   { width: 34,  height: 34  },
+    main: { width: 600, height: 595 },
+    icon: { width: 34, height: 34 }
   };
 
   if (!failed) {
