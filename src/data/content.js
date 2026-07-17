@@ -333,7 +333,43 @@ export const content = {
       founder:
         "Founded by Ahmed Farouk, AFAQ Digital brings together business understanding, design taste, and practical digital execution.",
       locations: ["Dubai", "UAE", "GCC", "Worldwide"],
-      ecosystem: ["Websites", "E-Commerce", "Business Systems", "AI Automation"],
+      /* Ecosystem node labels/slogans are intentionally English in both languages. */
+      ecosystem: [
+        {
+          id: "websites",
+          label: "Websites",
+          slogan: "Build trust online.",
+          links: [{ label: "View service", anchor: "service-websites" }]
+        },
+        {
+          id: "ecommerce",
+          label: "E-Commerce",
+          slogan: "Make buying simple.",
+          links: [{ label: "View service", anchor: "service-ecommerce" }]
+        },
+        {
+          id: "systems",
+          label: "Business Systems",
+          slogan: "Run work smarter.",
+          links: [{ label: "View service", anchor: "service-systems" }]
+        },
+        {
+          id: "ai",
+          label: "AI Automation",
+          slogan: "Automate repetitive work.",
+          links: [{ label: "View service", anchor: "service-ai" }]
+        },
+        {
+          id: "google-linkedin",
+          label: "Google & LinkedIn",
+          slogan: "Be easier to find and trust.",
+          links: [
+            { label: "Google Business", anchor: "service-google-business" },
+            { label: "LinkedIn", anchor: "service-linkedin" }
+          ]
+        }
+      ],
+      activateLabel: "Activate the AFAQ Digital ecosystem view",
       visualLabel: "AFAQ Digital ecosystem: websites, e-commerce, business systems, and AI automation connected around the business",
       marketsLabel: "Markets served"
     },
@@ -757,7 +793,43 @@ export const content = {
       founder:
         "تأسست AFAQ Digital على يد Ahmed Farouk لتجمع بين فهم الأعمال، الذوق التصميمي، والتنفيذ الرقمي العملي.",
       locations: ["Dubai", "UAE", "GCC", "Worldwide"],
-      ecosystem: ["المواقع", "المتاجر الإلكترونية", "أنظمة الأعمال", "أتمتة الذكاء الاصطناعي"],
+      /* Ecosystem node labels/slogans are intentionally English in both languages. */
+      ecosystem: [
+        {
+          id: "websites",
+          label: "Websites",
+          slogan: "Build trust online.",
+          links: [{ label: "View service", anchor: "service-websites" }]
+        },
+        {
+          id: "ecommerce",
+          label: "E-Commerce",
+          slogan: "Make buying simple.",
+          links: [{ label: "View service", anchor: "service-ecommerce" }]
+        },
+        {
+          id: "systems",
+          label: "Business Systems",
+          slogan: "Run work smarter.",
+          links: [{ label: "View service", anchor: "service-systems" }]
+        },
+        {
+          id: "ai",
+          label: "AI Automation",
+          slogan: "Automate repetitive work.",
+          links: [{ label: "View service", anchor: "service-ai" }]
+        },
+        {
+          id: "google-linkedin",
+          label: "Google & LinkedIn",
+          slogan: "Be easier to find and trust.",
+          links: [
+            { label: "Google Business", anchor: "service-google-business" },
+            { label: "LinkedIn", anchor: "service-linkedin" }
+          ]
+        }
+      ],
+      activateLabel: "تفعيل عرض منظومة AFAQ Digital",
       visualLabel: "منظومة AFAQ Digital الرقمية: المواقع والمتاجر الإلكترونية وأنظمة الأعمال وأتمتة الذكاء الاصطناعي حول عملك",
       marketsLabel: "الأسواق التي نخدمها"
     },
