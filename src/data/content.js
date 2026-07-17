@@ -227,65 +227,6 @@ export const content = {
         }
       ]
     },
-    testimonials: {
-      title: "Client Feedback",
-      subtitle:
-        "Realistic notes from business owners and customers after experiencing smoother digital journeys.",
-      trustLine:
-        "Feedback-style notes inspired by common business needs: clearer services, easier contact, better structure, and a more professional digital presence.",
-      ctaText: "Want your business to be the next success story?",
-      ctaButton: "Start Your Project",
-      items: [
-        {
-          label: "Salon Owner · Dubai",
-          tag: "Website + WhatsApp Contact",
-          icon: "SL",
-          text: "The website structure made it easier for customers to understand our services and contact us directly."
-        },
-        {
-          label: "Restaurant Manager · UAE",
-          tag: "Menu / Ordering Flow",
-          icon: "RT",
-          text: "The menu and contact flow felt clearer. Customers could browse options and reach us with less confusion."
-        },
-        {
-          label: "Small Business Owner · Dubai",
-          tag: "Premium Business Presence",
-          icon: "SM",
-          text: "The layout helped our business look more organized and professional, while keeping the message simple."
-        },
-        {
-          label: "E-Commerce Founder · GCC",
-          tag: "E-Commerce Experience",
-          icon: "EC",
-          text: "The structure focused on what customers need to see before they ask, order, or contact us."
-        },
-        {
-          label: "Startup Founder · Dubai",
-          tag: "Startup Website Launch",
-          icon: "ST",
-          text: "The process felt organized from the first call. Every section had a clear purpose for the launch."
-        },
-        {
-          label: "Retail Business Owner · UAE",
-          tag: "Google / WhatsApp Presence",
-          icon: "GB",
-          text: "The digital presence felt more trustworthy, especially with clearer services, Google details, and WhatsApp actions."
-        },
-        {
-          label: "Operations Manager · GCC",
-          tag: "Dashboard Concept",
-          icon: "BI",
-          text: "The dashboard concept made our numbers easier to follow in one clear place instead of scattered files."
-        },
-        {
-          label: "Local Service Provider · Dubai",
-          tag: "Service Business Website",
-          icon: "LS",
-          text: "The final layout felt clean and practical. It helped present the service without making the page feel heavy."
-        }
-      ]
-    },
     process: {
       title: "A Clear Process from Idea to Launch",
       description:
@@ -676,64 +617,6 @@ export const content = {
           impact: "تجربة مطعم مصممة لجعل تصفح المنيو والطلب واضحًا ومباشرًا.",
           tags: ["Restaurant", "Menu", "WhatsApp Orders", "Google Maps"],
           button: "استعراض النموذج"
-        }
-      ]
-    },
-    testimonials: {
-      title: "آراء العملاء",
-      subtitle: "ملاحظات واقعية من أصحاب أعمال وعملاء بعد تجربة رقمية أسهل وأكثر وضوحًا.",
-      trustLine:
-        "ملاحظات بأسلوب واقعي مستوحاة من احتياجات شائعة لأصحاب الأعمال: وضوح الخدمات، سهولة التواصل، ترتيب المحتوى، وحضور رقمي أكثر احترافية.",
-      ctaText: "هل تريد أن يكون مشروعك قصة النجاح القادمة؟",
-      ctaButton: "ابدأ مشروعك",
-      items: [
-        {
-          label: "صاحب صالون · دبي",
-          tag: "موقع + تواصل واتساب",
-          icon: "SL",
-          text: "ترتيب الموقع سهّل على العملاء فهم خدماتنا والتواصل معنا مباشرة."
-        },
-        {
-          label: "مدير مطعم · الإمارات",
-          tag: "منيو / مسار طلب",
-          icon: "RT",
-          text: "عرض المنيو وخطوات التواصل أصبحوا أوضح، والعميل يقدر يوصل للاختيار المناسب بسهولة."
-        },
-        {
-          label: "صاحب مشروع صغير · دبي",
-          tag: "حضور أعمال احترافي",
-          icon: "SM",
-          text: "التصميم أعطى المشروع شكلًا أكثر تنظيمًا واحترافية، مع رسالة واضحة وبسيطة."
-        },
-        {
-          label: "مؤسس متجر إلكتروني · الخليج",
-          tag: "تجربة متجر إلكتروني",
-          icon: "EC",
-          text: "هيكل الموقع ركّز على ما يحتاج العميل رؤيته قبل السؤال، الطلب، أو التواصل."
-        },
-        {
-          label: "مؤسس شركة ناشئة · دبي",
-          tag: "إطلاق موقع ناشئ",
-          icon: "ST",
-          text: "طريقة العمل كانت منظمة من البداية، وكل قسم في الموقع كان له هدف واضح يخدم الإطلاق."
-        },
-        {
-          label: "صاحب نشاط تجاري · الإمارات",
-          tag: "حضور Google / واتساب",
-          icon: "GB",
-          text: "الحضور الرقمي أصبح أكثر ثقة، خصوصًا مع وضوح الخدمات، بيانات Google، وأزرار واتساب."
-        },
-        {
-          label: "مدير عمليات · الخليج",
-          tag: "فكرة لوحة تحكم",
-          icon: "BI",
-          text: "فكرة لوحة التحكم ساعدتنا نتابع الأرقام بشكل أوضح في مكان واحد بدل ملفات متفرقة."
-        },
-        {
-          label: "مقدم خدمة محلي · دبي",
-          tag: "موقع خدمات محلية",
-          icon: "LS",
-          text: "الشكل النهائي كان واضحًا وعمليًا، وساعدنا نعرض الخدمة بدون أن تكون الصفحة مزدحمة."
         }
       ]
     },
