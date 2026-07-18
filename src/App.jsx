@@ -10,7 +10,6 @@ import Packages from "./components/Packages.jsx";
 import About from "./components/About.jsx";
 import FAQ from "./components/FAQ.jsx";
 import Contact from "./components/Contact.jsx";
-import LeadCapture from "./components/LeadCapture.jsx";
 import AssistantWidget from "./components/AssistantWidget.jsx";
 import FloatingWhatsApp from "./components/FloatingWhatsApp.jsx";
 import Footer from "./components/Footer.jsx";
@@ -56,7 +55,6 @@ export default function App() {
         <FAQ t={t} />
         <Contact t={t} />
       </main>
-      <LeadCapture lang={lang} t={t} />
       <AssistantWidget t={t} />
       <FloatingWhatsApp t={t} />
       <Footer t={t} />

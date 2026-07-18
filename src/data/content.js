@@ -466,6 +466,121 @@ export const content = {
       ],
       inputPlaceholder: "Choose a quick action"
     },
+    smartAssistant: {
+      launcherLabel: "Smart Assistant",
+      teaser: {
+        title: "Planning a digital project?",
+        body: "Get clear guidance or share your project requirements with Team AFAQ.",
+        primaryAction: "Share Project Details",
+        secondaryAction: "Get Quick Guidance",
+        closeAriaLabel: "Dismiss assistant message"
+      },
+      drawer: {
+        title: "Smart Project Assistant",
+        subtitle: "Guided project support by Team AFAQ",
+        closeAriaLabel: "Close assistant"
+      },
+      welcome: {
+        eyebrow: "AFAQ DIGITAL PROJECT GUIDANCE",
+        heading: "Let’s find the right next step for your business.",
+        body: "Explore our services, get clear initial guidance, or share your project requirements with Team AFAQ."
+      },
+      entryMenu: {
+        quickGuidance: {
+          title: "Get Quick Guidance",
+          description: "Explore services, process, timelines, hosting and common project questions."
+        },
+        leadForm: {
+          title: "Leave Project Details",
+          description: "Share your business needs so Team AFAQ can prepare the right next step."
+        }
+      },
+      holding: {
+        comingSoon: "This step will be completed in the next implementation stage.",
+        backToOptions: "Back to Options"
+      },
+      leadForm: {
+        eyebrow: "PROJECT DETAILS",
+        heading: "Tell us what you’re looking to build.",
+        intro:
+          "Share the essential details below. Team AFAQ will review your requirements before confirming scope, pricing and delivery.",
+        fields: {
+          fullName: "Full Name",
+          whatsappNumber: "WhatsApp Number",
+          businessName: "Business Name (Optional)",
+          serviceNeeded: "Service Needed",
+          primaryGoal: "Primary Project Goal",
+          projectDetails: "Project Details",
+          preferredStart: "Preferred Start"
+        },
+        placeholders: {
+          fullName: "Your full name",
+          whatsappNumber: "Example: +971 50 000 0000",
+          businessName: "Your business or brand name",
+          projectDetails: "Briefly describe what you need, the main features and any important requirements."
+        },
+        selectPlaceholder: "Select an option",
+        serviceOptions: {
+          premium_websites: "Premium Website",
+          ecommerce: "E-Commerce Store",
+          business_systems: "Business System or Dashboard",
+          google_business: "Google Business Profile",
+          linkedin: "LinkedIn Presence",
+          smart_assistant: "Smart Assistant or Automation",
+          other: "Other Digital Requirement"
+        },
+        goalOptions: {
+          establish_digital_presence: "Build a credible digital presence",
+          generate_leads: "Generate more enquiries and leads",
+          sell_online: "Sell products or services online",
+          improve_business_operations: "Improve workflow and business operations",
+          improve_professional_presence: "Improve professional visibility",
+          add_automation: "Automate enquiries or repetitive work",
+          other: "Another business goal"
+        },
+        startOptions: {
+          asap: "As soon as possible",
+          within_1_month: "Within one month",
+          within_1_3_months: "Within 1–3 months",
+          exploring: "I’m still exploring"
+        },
+        consent: "I agree that Team AFAQ may contact me regarding this project request.",
+        submit: "Review Project Details",
+        back: "Back to Main Options",
+        errors: {
+          fullName: "Please enter your full name.",
+          whatsappNumber: "Please enter a valid WhatsApp number.",
+          serviceNeeded: "Please select a service.",
+          primaryGoal: "Please select a primary goal.",
+          projectDetails: "Please add a few more details about your project.",
+          preferredStart: "Please select a preferred start.",
+          contactConsent: "Please confirm you agree to be contacted."
+        }
+      },
+      review: {
+        eyebrow: "REQUEST REVIEW",
+        heading: "Review your project details.",
+        body: "Check the information below before it is sent to Team AFAQ.",
+        labels: {
+          fullName: "Full Name",
+          whatsappNumber: "WhatsApp Number",
+          businessName: "Business Name",
+          serviceNeeded: "Service Needed",
+          primaryGoal: "Primary Project Goal",
+          projectDetails: "Project Details",
+          preferredStart: "Preferred Start",
+          contactConsent: "Contact Consent"
+        },
+        consentConfirmed: "Confirmed",
+        editAction: "Edit Details",
+        backAction: "Back to Main Options",
+        pendingNotice: "Submission connection will be completed in the next integration stage."
+      },
+      footer: {
+        governance: "Initial guidance only. Final scope, pricing and delivery are confirmed by Team AFAQ.",
+        noPayment: "No payment is required to use this assistant."
+      }
+    },
     footer: {
       slogan: "Smart Websites. Wider Horizons. Real Growth.",
       description:
@@ -925,6 +1040,121 @@ export const content = {
         "يمكنك البدء مباشرة عبر واتساب وإرسال احتياج مشروعك."
       ],
       inputPlaceholder: "اختر إجراء سريع"
+    },
+    smartAssistant: {
+      launcherLabel: "مساعد المشاريع",
+      teaser: {
+        title: "هل تخطط لمشروع رقمي؟",
+        body: "احصل على توجيه واضح أو شارك متطلبات مشروعك مع فريق AFAQ.",
+        primaryAction: "أرسل تفاصيل مشروعك",
+        secondaryAction: "احصل على توجيه سريع",
+        closeAriaLabel: "إغلاق رسالة المساعد"
+      },
+      drawer: {
+        title: "مساعد المشاريع الذكي",
+        subtitle: "دعم موجه لمشروعك من فريق AFAQ",
+        closeAriaLabel: "إغلاق المساعد"
+      },
+      welcome: {
+        eyebrow: "توجيه مشروعات AFAQ DIGITAL",
+        heading: "لنحدد الخطوة المناسبة لمشروعك.",
+        body: "تعرّف على خدماتنا، واحصل على توجيه أولي واضح، أو شارك متطلبات مشروعك مع فريق AFAQ."
+      },
+      entryMenu: {
+        quickGuidance: {
+          title: "احصل على توجيه سريع",
+          description: "تعرّف على الخدمات، آلية العمل، الجداول الزمنية، الاستضافة، وأهم أسئلة المشروعات."
+        },
+        leadForm: {
+          title: "أرسل تفاصيل مشروعك",
+          description: "شارك احتياجات عملك ليتمكن فريق AFAQ من تجهيز الخطوة المناسبة."
+        }
+      },
+      holding: {
+        comingSoon: "سيتم إكمال هذه الخطوة في مرحلة التنفيذ القادمة.",
+        backToOptions: "العودة للخيارات"
+      },
+      leadForm: {
+        eyebrow: "تفاصيل المشروع",
+        heading: "أخبرنا بما ترغب في تنفيذه.",
+        intro:
+          "شارك التفاصيل الأساسية أدناه، وسيقوم فريق AFAQ بمراجعة متطلباتك قبل تأكيد النطاق والسعر وموعد التنفيذ.",
+        fields: {
+          fullName: "الاسم الكامل",
+          whatsappNumber: "رقم واتساب",
+          businessName: "اسم النشاط (اختياري)",
+          serviceNeeded: "الخدمة المطلوبة",
+          primaryGoal: "الهدف الأساسي للمشروع",
+          projectDetails: "تفاصيل المشروع",
+          preferredStart: "موعد البدء المتوقع"
+        },
+        placeholders: {
+          fullName: "اكتب اسمك الكامل",
+          whatsappNumber: "مثال: +971 50 000 0000",
+          businessName: "اسم النشاط أو العلامة التجارية",
+          projectDetails: "اشرح باختصار ما تحتاجه، والخصائص الأساسية، وأي متطلبات مهمة."
+        },
+        selectPlaceholder: "اختر خيارًا",
+        serviceOptions: {
+          premium_websites: "موقع إلكتروني احترافي",
+          ecommerce: "متجر إلكتروني",
+          business_systems: "نظام أعمال أو داشبورد",
+          google_business: "ملف Google Business",
+          linkedin: "حضور احترافي على LinkedIn",
+          smart_assistant: "مساعد ذكي أو أتمتة",
+          other: "متطلب رقمي آخر"
+        },
+        goalOptions: {
+          establish_digital_presence: "بناء حضور رقمي موثوق",
+          generate_leads: "زيادة الاستفسارات والعملاء المحتملين",
+          sell_online: "بيع المنتجات أو الخدمات أونلاين",
+          improve_business_operations: "تحسين سير العمل وإدارة الأعمال",
+          improve_professional_presence: "تحسين الظهور الاحترافي",
+          add_automation: "أتمتة الاستفسارات أو المهام المتكررة",
+          other: "هدف آخر لعملك"
+        },
+        startOptions: {
+          asap: "بأسرع وقت ممكن",
+          within_1_month: "خلال شهر واحد",
+          within_1_3_months: "خلال 1 إلى 3 أشهر",
+          exploring: "ما زلت أستكشف الخيارات"
+        },
+        consent: "أوافق على تواصل فريق AFAQ معي بخصوص طلب المشروع.",
+        submit: "راجع تفاصيل مشروعك",
+        back: "العودة إلى الخيارات الرئيسية",
+        errors: {
+          fullName: "يرجى إدخال اسمك الكامل.",
+          whatsappNumber: "يرجى إدخال رقم واتساب صحيح.",
+          serviceNeeded: "يرجى اختيار الخدمة المطلوبة.",
+          primaryGoal: "يرجى اختيار الهدف الأساسي.",
+          projectDetails: "يرجى إضافة تفاصيل أوضح عن مشروعك.",
+          preferredStart: "يرجى اختيار موعد البدء المفضل.",
+          contactConsent: "يرجى تأكيد موافقتك على التواصل."
+        }
+      },
+      review: {
+        eyebrow: "مراجعة الطلب",
+        heading: "راجع تفاصيل مشروعك.",
+        body: "تأكد من المعلومات أدناه قبل إرسالها إلى فريق AFAQ.",
+        labels: {
+          fullName: "الاسم الكامل",
+          whatsappNumber: "رقم واتساب",
+          businessName: "اسم النشاط",
+          serviceNeeded: "الخدمة المطلوبة",
+          primaryGoal: "الهدف الأساسي للمشروع",
+          projectDetails: "تفاصيل المشروع",
+          preferredStart: "موعد البدء المتوقع",
+          contactConsent: "موافقة التواصل"
+        },
+        consentConfirmed: "تم التأكيد",
+        editAction: "تعديل التفاصيل",
+        backAction: "العودة إلى الخيارات الرئيسية",
+        pendingNotice: "سيتم استكمال ربط الإرسال في مرحلة التكامل التالية."
+      },
+      footer: {
+        governance: "توجيه أولي فقط. يتم تأكيد النطاق والسعر وموعد التنفيذ من خلال فريق AFAQ.",
+        noPayment: "لا يتطلب استخدام هذا المساعد أي دفع."
+      }
     },
     footer: {
       slogan: "مواقع ذكية. آفاق أوسع. نمو حقيقي.",
