@@ -6,6 +6,11 @@ export const PHONE_DISPLAY = "+971 50 413 1228";
 // replaces this TODO value, the contact form shows an error and directs
 // visitors to WhatsApp instead of pretending to send.
 export const WEB3FORMS_ACCESS_KEY = "65cd398c-0b78-4b03-a3a8-5db5efe0b507";
+// Centralized Google Form backup link (Smart Assistant manual-fallback path).
+// Note: Contact.jsx still holds its own local copy of this same URL —
+// tracked as Stage 6B-6 cleanup debt to consolidate onto this export.
+export const websiteRequestFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLScjcL6Z3P-wodVN_9V3Lgca4cRvY8rq1Zl3hXxcY2khOaCEmQ/viewform?usp=header";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/ahmed-farouk-01b279286/";
 export const FACEBOOK_URL = "https://www.facebook.com/helloafaqdigital";
 export const INSTAGRAM_URL = "https://www.instagram.com/helloafaqdigital/";
@@ -500,10 +505,20 @@ export const content = {
         backToOptions: "Back to Options"
       },
       leadForm: {
-        eyebrow: "PROJECT DETAILS",
+        eyebrow: "PROJECT INTAKE",
         heading: "Tell us what you’re looking to build.",
         intro:
           "Share the essential details below. Team AFAQ will review your requirements before confirming scope, pricing and delivery.",
+        progress: {
+          stepLabelTemplate: "Step {current} of {total}"
+        },
+        steps: {
+          contact: { title: "Contact Details" },
+          direction: { title: "Project Direction" },
+          brief: { title: "Project Brief" }
+        },
+        continueAction: "Continue",
+        backStepAction: "Back",
         fields: {
           fullName: "Full Name",
           whatsappNumber: "WhatsApp Number",
@@ -573,8 +588,26 @@ export const content = {
         },
         consentConfirmed: "Confirmed",
         editAction: "Edit Details",
+        editSectionAction: "Edit",
         backAction: "Back to Main Options",
-        pendingNotice: "Submission connection will be completed in the next integration stage."
+        submitAction: "Send Project Request",
+        submitting: "Sending your request...",
+        pendingNotice: "Review your information, then select “Send Project Request” to send it to Team AFAQ."
+      },
+      success: {
+        eyebrow: "REQUEST SENT",
+        heading: "Your project details have been sent.",
+        body: "Team AFAQ has received your request and will follow up on WhatsApp shortly.",
+        close: "Close"
+      },
+      manualFallback: {
+        eyebrow: "SENDING ISSUE",
+        heading: "We couldn't send your request just now.",
+        body: "Your details are saved. Try again, or reach Team AFAQ directly using one of the options below.",
+        tryAgain: "Try Again",
+        editDetails: "Edit Details",
+        continueWhatsapp: "Continue on WhatsApp",
+        googleFormBackup: "Google Form Backup"
       },
       footer: {
         governance: "Initial guidance only. Final scope, pricing and delivery are confirmed by Team AFAQ.",
@@ -1075,10 +1108,20 @@ export const content = {
         backToOptions: "العودة للخيارات"
       },
       leadForm: {
-        eyebrow: "تفاصيل المشروع",
+        eyebrow: "بيانات المشروع",
         heading: "أخبرنا بما ترغب في تنفيذه.",
         intro:
           "شارك التفاصيل الأساسية أدناه، وسيقوم فريق AFAQ بمراجعة متطلباتك قبل تأكيد النطاق والسعر وموعد التنفيذ.",
+        progress: {
+          stepLabelTemplate: "الخطوة {current} من {total}"
+        },
+        steps: {
+          contact: { title: "بيانات التواصل" },
+          direction: { title: "اتجاه المشروع" },
+          brief: { title: "تفاصيل المشروع" }
+        },
+        continueAction: "متابعة",
+        backStepAction: "رجوع",
         fields: {
           fullName: "الاسم الكامل",
           whatsappNumber: "رقم واتساب",
@@ -1148,8 +1191,26 @@ export const content = {
         },
         consentConfirmed: "تم التأكيد",
         editAction: "تعديل التفاصيل",
+        editSectionAction: "تعديل",
         backAction: "العودة إلى الخيارات الرئيسية",
-        pendingNotice: "سيتم استكمال ربط الإرسال في مرحلة التكامل التالية."
+        submitAction: "إرسال طلب المشروع",
+        submitting: "جارٍ إرسال طلبك...",
+        pendingNotice: "راجع بياناتك، ثم اضغط «إرسال طلب المشروع» لإرسالها إلى فريق AFAQ."
+      },
+      success: {
+        eyebrow: "تم إرسال الطلب",
+        heading: "تم إرسال تفاصيل مشروعك.",
+        body: "استلم فريق AFAQ طلبك وسيتواصل معك عبر واتساب قريبًا.",
+        close: "إغلاق"
+      },
+      manualFallback: {
+        eyebrow: "مشكلة في الإرسال",
+        heading: "تعذّر إرسال طلبك الآن.",
+        body: "بياناتك محفوظة. أعد المحاولة، أو تواصل مع فريق AFAQ مباشرة عبر أحد الخيارات أدناه.",
+        tryAgain: "إعادة المحاولة",
+        editDetails: "تعديل التفاصيل",
+        continueWhatsapp: "المتابعة عبر واتساب",
+        googleFormBackup: "نموذج جوجل الاحتياطي"
       },
       footer: {
         governance: "توجيه أولي فقط. يتم تأكيد النطاق والسعر وموعد التنفيذ من خلال فريق AFAQ.",

@@ -7008,7 +7008,7 @@ main > .section + .section,
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(420px, 100vw);
+  width: min(500px, 100vw);
   max-width: 100vw;
   height: 100vh;
   height: 100dvh;
@@ -7139,20 +7139,20 @@ main > .section + .section,
    from feeling empty without becoming a legal-looking wall of text. */
 .sa-drawer__footer {
   flex: 0 0 auto;
-  padding: 14px 22px calc(14px + env(safe-area-inset-bottom, 0px));
+  padding: 9px 22px calc(9px + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--color-soft-border);
   background: var(--color-white);
 }
 
 .sa-drawer__footer-line {
   margin: 0;
-  font-size: 0.72rem;
-  line-height: 1.5;
+  font-size: 0.66rem;
+  line-height: 1.4;
   color: var(--color-muted-blue);
 }
 
 .sa-drawer__footer-line + .sa-drawer__footer-line {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .sa-drawer__footer-line--muted {
@@ -7646,6 +7646,16 @@ body.smart-assistant-open .whatsapp-float {
   .sa-lead__row {
     grid-template-columns: 1fr;
   }
+
+  /* Stage 6B-1G: every choice-group collapses to one column on mobile —
+     no clipped/ellipsized labels regardless of EN or AR length. */
+  .sa-choice-group--grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .sa-lead__nav {
+    padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media (max-width: 430px) {
@@ -7681,10 +7691,17 @@ body.smart-assistant-open .whatsapp-float {
   .sa-lead__back,
   .sa-review__edit,
   .sa-review__back,
+  .sa-review__section-edit,
+  .sa-choice-tile,
   .sa-field input,
   .sa-field select,
   .sa-field textarea {
     transition: none;
+  }
+
+  /* Stage 6B-1G: step content changes instantly, no fade/slide. */
+  .sa-lead__step {
+    animation: none;
   }
 
   .sa-launcher:hover,
@@ -7697,5 +7714,294 @@ body.smart-assistant-open .whatsapp-float {
 
   [dir="rtl"] .sa-entry__choice-arrow {
     transform: scaleX(-1);
+  }
+}
+
+/* ==========================================================================
+   Stage 6B-1G — Premium guided project intake UX
+   Progress header, choice-group tiles, sticky step nav, grouped review
+   sections. Additive only — no existing sa-* selector above is redefined.
+   ========================================================================== */
+
+/* Slim progress header inside ProjectLeadForm — eyebrow, "Step N of 3" +
+   compact segment markers, and the current step's title. Deliberately
+   small: no wizard chrome, no illustration. */
+.sa-progress {
+  margin-bottom: 18px;
+}
+
+.sa-progress__eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-cobalt);
+}
+
+.sa-progress__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.sa-progress__step-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-muted-blue);
+}
+
+.sa-progress__markers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sa-progress__marker {
+  width: 22px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-soft-border);
+  transition: background 200ms ease;
+}
+
+.sa-progress__marker.is-complete {
+  background: var(--color-gold);
+}
+
+.sa-progress__marker.is-current {
+  background: var(--color-cobalt);
+}
+
+.sa-progress__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark-text);
+}
+
+/* Step content wrapper — restrained fade + 6px logical-direction shift,
+   never a full horizontal slide/carousel. */
+.sa-lead__step {
+  animation: saStepIn 220ms ease both;
+}
+
+@keyframes saStepIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* One-column field stack for Steps 1 and 3 (replaces the old two-column
+   .sa-lead__row pairing that compressed/truncated field text). */
+.sa-lead__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Sticky step-navigation bar. position: sticky (never fixed) inside the
+   already-scrollable .sa-drawer__body — stays reachable without covering
+   the last field, and without a second nested scroll region. */
+.sa-lead__nav {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 14px 0 4px;
+  background: linear-gradient(180deg, rgba(250, 247, 241, 0) 0%, #faf7f1 28%);
+  border-top: 1px solid var(--color-soft-border);
+}
+
+.sa-lead__nav .sa-lead__back {
+  flex: 0 0 auto;
+}
+
+.sa-lead__nav .sa-lead__submit {
+  flex: 1 1 auto;
+}
+
+/* Choice-group radiogroup tiles (Service Needed / Primary Goal / Preferred
+   Start) — compact, editorial cards, not dashboard tiles. */
+.sa-choice-group {
+  display: grid;
+  gap: 8px;
+}
+
+.sa-choice-group--grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.sa-choice-group--rows {
+  grid-template-columns: 1fr;
+}
+
+.sa-choice-tile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-soft-border);
+  border-radius: 10px;
+  background: var(--color-white);
+  color: var(--color-dark-text);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: start;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.sa-choice-group--rows .sa-choice-tile {
+  min-height: 40px;
+  padding: 9px 12px;
+}
+
+.sa-choice-tile:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.sa-choice-tile:focus-visible {
+  outline: 2px solid var(--color-sky);
+  outline-offset: 2px;
+  border-color: var(--color-cobalt);
+}
+
+.sa-choice-tile.is-selected {
+  border-color: var(--color-cobalt);
+  background: rgba(37, 99, 235, 0.07);
+}
+
+/* Selected state never relies on color alone — the check glyph is the
+   primary signal, the cobalt border/tint is secondary. */
+.sa-choice-tile__check {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-soft-border);
+  background: var(--color-white);
+  position: relative;
+}
+
+.sa-choice-tile.is-selected .sa-choice-tile__check {
+  border-color: var(--color-cobalt);
+  background: var(--color-cobalt);
+}
+
+.sa-choice-tile.is-selected .sa-choice-tile__check::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-white);
+}
+
+.sa-choice-tile__label {
+  flex: 1 1 auto;
+}
+
+/* Grouped review sections (Contact Details / Project Direction / Project
+   Brief) — replace the single long review card. */
+.sa-review__section {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-soft-border);
+  border-radius: 12px;
+  background: var(--color-white);
+}
+
+.sa-review__section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sa-review__section-title {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--color-dark-text);
+}
+
+.sa-review__section-edit {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-cobalt);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.sa-review__section-edit:hover,
+.sa-review__section-edit:focus-visible {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.sa-review__section-edit:focus-visible {
+  outline: 2px solid var(--color-sky);
+  outline-offset: 2px;
+}
+
+.sa-review__section-edit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sa-review__section .sa-review__list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* Quiet secondary action under the one dominant Send button. */
+.sa-review__back--quiet {
+  border-color: transparent;
+  background: transparent;
+  font-weight: 600;
+  color: var(--color-muted-blue);
+}
+
+.sa-review__back--quiet:hover,
+.sa-review__back--quiet:focus-visible {
+  border-color: transparent;
+  background: rgba(37, 99, 235, 0.06);
+  color: var(--color-cobalt);
+}
+
+@media (max-width: 760px) {
+  .sa-choice-group--grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sa-progress__marker,
+  .sa-review__section-edit,
+  .sa-review__back--quiet {
+    transition: none;
   }
 }

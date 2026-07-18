@@ -102,6 +102,21 @@ export function assistantReducer(state, action) {
     case STATES.SUMMARY:
       if (type === EVENTS.EDIT_ANSWER) return STATES.LEAD_FORM;
       if (type === EVENTS.GO_BACK) return STATES.OPEN_MENU;
+      if (type === EVENTS.SUBMIT_LEAD) return STATES.SUBMITTING;
+      return state;
+
+    // Stage 6B-1F: real submission. Only SUBMIT_SUCCESS/SUBMIT_FAILURE move
+    // out of this state — nothing else can interrupt an in-flight request.
+    case STATES.SUBMITTING:
+      if (type === EVENTS.SUBMIT_SUCCESS) return STATES.SUCCESS;
+      if (type === EVENTS.SUBMIT_FAILURE) return STATES.MANUAL_FALLBACK;
+      return state;
+
+    // Failure lands here (never SUMMARY) so the visitor gets explicit
+    // recovery choices instead of silently landing back on the review step.
+    case STATES.MANUAL_FALLBACK:
+      if (type === EVENTS.SUBMIT_LEAD) return STATES.SUBMITTING;
+      if (type === EVENTS.EDIT_ANSWER) return STATES.LEAD_FORM;
       return state;
 
     default:

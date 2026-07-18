@@ -2,6 +2,8 @@ import { useEffect, useReducer, useRef, useState } from "react";
 import { OPEN_ASSISTANT_EVENT } from "../data/serviceProofMap.js";
 import { assistantReducer, initialAssistantState, STATES, EVENTS } from "../utils/assistantMachine.js";
 import { LEAD_FORM_FIELDS } from "../data/assistantFlow.js";
+import { buildLeadSummary } from "../utils/leadSummary.js";
+import { WEB3FORMS_ACCESS_KEY, whatsappHref, websiteRequestFormUrl } from "../data/content.js";
 import {
   getOrCreateSessionId,
   hasTeaserBeenShownThisSession,
@@ -31,6 +33,13 @@ const EMPTY_LEAD_FORM = {
 
 const TEASER_DELAY_MS = 10000;
 const TEASER_PREVIEW_DELAY_MS = 1000;
+const SUBMIT_TIMEOUT_MS = 10000;
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
+const generateLeadId = () =>
+  typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+    ? crypto.randomUUID()
+    : `lead-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 // The Hero is considered "substantially visible" at or above this
 // intersection ratio (within the approved ~0.25–0.35 range).
 const HERO_VISIBILITY_THRESHOLD = 0.3;
@@ -72,6 +81,59 @@ function HoldingView({ title, t, onBack }) {
   );
 }
 
+// SUCCESS view (Stage 6B-1F). Reuses the sa-review__* classes already
+// styled for the review step so no CSS changes are needed for this stage.
+function SuccessView({ t, onClose }) {
+  const copy = t.smartAssistant.success;
+  return (
+    <div className="sa-review">
+      <span className="sa-review__eyebrow">{copy.eyebrow}</span>
+      <h2 className="sa-review__heading" id="sa-drawer-title">
+        {copy.heading}
+      </h2>
+      <p className="sa-review__body" id="sa-drawer-desc">
+        {copy.body}
+      </p>
+      <div className="sa-review__actions">
+        <button type="button" className="sa-lead__submit" onClick={onClose}>
+          {copy.close}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// MANUAL_FALLBACK view (Stage 6B-1F). Reached only on a failed submission —
+// never clears leadFormData/leadId, so Try Again reuses the same attempt.
+function ManualFallbackView({ t, onTryAgain, onEditDetails }) {
+  const copy = t.smartAssistant.manualFallback;
+  return (
+    <div className="sa-review">
+      <span className="sa-review__eyebrow">{copy.eyebrow}</span>
+      <h2 className="sa-review__heading" id="sa-drawer-title">
+        {copy.heading}
+      </h2>
+      <p className="sa-review__body" id="sa-drawer-desc">
+        {copy.body}
+      </p>
+      <div className="sa-review__actions">
+        <button type="button" className="sa-lead__submit" onClick={onTryAgain}>
+          {copy.tryAgain}
+        </button>
+        <button type="button" className="sa-review__edit" onClick={onEditDetails}>
+          {copy.editDetails}
+        </button>
+        <a className="sa-review__back" href={whatsappHref} target="_blank" rel="noreferrer">
+          {copy.continueWhatsapp}
+        </a>
+        <a className="sa-review__back" href={websiteRequestFormUrl} target="_blank" rel="noopener noreferrer">
+          {copy.googleFormBackup}
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function AssistantWidget({ t }) {
   const [state, dispatch] = useReducer(assistantReducer, initialAssistantState);
   const teaserTimerRef = useRef(null);
@@ -81,6 +143,28 @@ export default function AssistantWidget({ t }) {
   const previousFocusRef = useRef(null);
   const bodyOverflowRef = useRef("");
   const [leadFormData, setLeadFormData] = useState(EMPTY_LEAD_FORM);
+  // Synchronous submit guard — the SUBMITTING FSM state is the declarative
+  // layer, this ref is the backstop against two rapid clicks landing before
+  // React re-renders the disabled button. Unlocked only on failure (Try
+  // Again) or on leaving a SUCCESS screen — never immediately on success.
+  const isSubmittingRef = useRef(false);
+  // One stable id per lead attempt, kept in memory only. Generated on first
+  // submit, reused across every MANUAL_FALLBACK retry, and across an
+  // ordinary drawer close/reopen of the same unfinished request. Cleared
+  // only after a confirmed success or an explicit RESET (never on failure,
+  // never on ordinary close).
+  const leadIdRef = useRef(null);
+  // The in-flight request's AbortController/timeout id, so an ordinary
+  // drawer close during SUBMITTING can abort it instead of leaving it to
+  // resolve in the background against a widget that has moved on.
+  const activeControllerRef = useRef(null);
+  const activeTimeoutRef = useRef(null);
+  // Stage 6B-1G: view-layer only — which internal ProjectLeadForm step to
+  // seed on the next LEAD_FORM mount. Defaults to 1 (fresh entry from the
+  // menu/teaser); a review section's Edit action sets it just before
+  // dispatching EDIT_ANSWER so the form reopens on the relevant step. Never
+  // read by assistantMachine.js — the reducer still only knows LEAD_FORM.
+  const leadFormEntryStepRef = useRef(1);
 
   const isDrawerOpen = DRAWER_STATES.has(state);
 
@@ -110,11 +194,125 @@ export default function AssistantWidget({ t }) {
     setLeadFormData((previous) => ({ ...previous, [field]: fieldValue }));
   };
 
+  // Owns the entire submit lifecycle: guard, leadId, timeout, request,
+  // gated success check, and routing to SUCCESS/MANUAL_FALLBACK. Reused
+  // unchanged by both the review Submit button and MANUAL_FALLBACK's Try
+  // Again — same in-memory leadFormData/leadId on every attempt.
+  const submitLead = async () => {
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
+    if (!leadIdRef.current) leadIdRef.current = generateLeadId();
+    dispatch({ type: EVENTS.SUBMIT_LEAD });
+
+    const controller = new AbortController();
+    activeControllerRef.current = controller;
+    const timeoutId = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
+    activeTimeoutRef.current = timeoutId;
+
+    try {
+      const lang = t.dir === "rtl" ? "ar" : "en";
+      const submittedAt = new Date().toISOString();
+      const shortLeadId = leadIdRef.current.slice(0, 8);
+      const leadFormCopy = t.smartAssistant.leadForm;
+      const reviewLabels = t.smartAssistant.review.labels;
+
+      const summary = buildLeadSummary({
+        data: leadFormData,
+        leadId: leadIdRef.current,
+        lang,
+        sourceChannel: "website",
+        fieldLabels: reviewLabels,
+        optionLabels: leadFormCopy
+      });
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        from_name: "AFAQ Smart Project Assistant",
+        subject: `New AFAQ Project Request — ${shortLeadId}`,
+        full_name: leadFormData[LEAD_FORM_FIELDS.FULL_NAME],
+        whatsapp_number: leadFormData[LEAD_FORM_FIELDS.WHATSAPP_NUMBER],
+        business_name: leadFormData[LEAD_FORM_FIELDS.BUSINESS_NAME],
+        service_needed_id: leadFormData[LEAD_FORM_FIELDS.SERVICE_NEEDED],
+        service_needed_label: leadFormCopy.serviceOptions[leadFormData[LEAD_FORM_FIELDS.SERVICE_NEEDED]] || "",
+        primary_goal_id: leadFormData[LEAD_FORM_FIELDS.PRIMARY_GOAL],
+        primary_goal_label: leadFormCopy.goalOptions[leadFormData[LEAD_FORM_FIELDS.PRIMARY_GOAL]] || "",
+        preferred_start_id: leadFormData[LEAD_FORM_FIELDS.PREFERRED_START],
+        preferred_start_label: leadFormCopy.startOptions[leadFormData[LEAD_FORM_FIELDS.PREFERRED_START]] || "",
+        project_details: leadFormData[LEAD_FORM_FIELDS.PROJECT_DETAILS],
+        contact_consent: leadFormData[LEAD_FORM_FIELDS.CONTACT_CONSENT] ? "yes" : "no",
+        lead_id: leadIdRef.current,
+        submitted_at: submittedAt,
+        source_channel: "website",
+        source: "smart_project_assistant",
+        language: lang,
+        project_summary: summary
+      };
+
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+
+      if (!response.ok) throw new Error("non_2xx_response");
+      const result = await response.json();
+      // If the drawer was closed mid-request, closeDrawer already aborted
+      // this exact controller and handled cleanup — a late resolve must not
+      // retroactively show success against a widget that has moved on.
+      if (controller.signal.aborted) return;
+      if (!result || result.success !== true) throw new Error("submission_not_successful");
+
+      // Confirmed success only: clear PII now. isSubmittingRef stays locked
+      // until the visitor leaves this SUCCESS screen (closeDrawer unlocks it).
+      setLeadFormData(EMPTY_LEAD_FORM);
+      leadIdRef.current = null;
+      activeControllerRef.current = null;
+      dispatch({ type: EVENTS.SUBMIT_SUCCESS });
+    } catch {
+      // Timeout/abort, network error, non-2xx, malformed JSON, or
+      // success !== true all land here. No raw error/response is ever
+      // surfaced to the visitor or logged — leadFormData/leadId untouched.
+      // An abort caused by closeDrawer is already fully handled there
+      // (ref unlocked, controller/timeout cleared) — skip re-dispatching
+      // SUBMIT_FAILURE for a request that's no longer the active one.
+      if (controller.signal.aborted) return;
+      isSubmittingRef.current = false;
+      activeControllerRef.current = null;
+      dispatch({ type: EVENTS.SUBMIT_FAILURE });
+    } finally {
+      window.clearTimeout(timeoutId);
+      if (activeTimeoutRef.current === timeoutId) activeTimeoutRef.current = null;
+    }
+  };
+
   // Session id is established once per tab session (not otherwise used in
   // Stage 6B-1, but required groundwork for later stages' payloads).
   useEffect(() => {
     getOrCreateSessionId();
   }, []);
+
+  // Explicit RESET / New Chat — distinct from an ordinary close. IDLE is
+  // only reached via EVENTS.RESET (CLOSED + RESET -> IDLE), so this clears
+  // every piece of in-memory request state: form PII, leadId, any active
+  // request, and the submit guard. Ordinary close never reaches IDLE, so it
+  // never triggers this. A no-op on initial mount (everything already at
+  // its default value).
+  useEffect(() => {
+    if (state !== STATES.IDLE) return;
+    if (activeControllerRef.current) {
+      activeControllerRef.current.abort();
+      activeControllerRef.current = null;
+    }
+    if (activeTimeoutRef.current) {
+      window.clearTimeout(activeTimeoutRef.current);
+      activeTimeoutRef.current = null;
+    }
+    isSubmittingRef.current = false;
+    leadIdRef.current = null;
+    leadFormEntryStepRef.current = 1;
+    setLeadFormData(EMPTY_LEAD_FORM);
+  }, [state]);
 
   // Non-modal teaser, suppressed per the session/24h/opened rules, and —
   // in production — additionally gated so it never appears while the Hero
@@ -249,6 +447,25 @@ export default function AssistantWidget({ t }) {
   };
 
   const closeDrawer = () => {
+    // Ordinary close (X button, Escape, backdrop, or the SUCCESS screen's
+    // own Close action) is NOT Reset: leadFormData and leadIdRef are left
+    // untouched so the same unfinished request resumes with the same
+    // leadId if the visitor reopens the drawer.
+    //
+    // If a request is still in flight, abort it first — clearing the
+    // timeout and unlocking isSubmittingRef only after the abort — so the
+    // abandoned request can never later dispatch SUBMIT_SUCCESS/FAILURE
+    // against a widget that has moved on (guarded again in submitLead via
+    // controller.signal.aborted).
+    if (activeControllerRef.current) {
+      activeControllerRef.current.abort();
+      activeControllerRef.current = null;
+    }
+    if (activeTimeoutRef.current) {
+      window.clearTimeout(activeTimeoutRef.current);
+      activeTimeoutRef.current = null;
+    }
+    isSubmittingRef.current = false;
     dispatch({ type: EVENTS.CLOSE });
     window.requestAnimationFrame(restoreFocus);
   };
@@ -258,7 +475,22 @@ export default function AssistantWidget({ t }) {
     dispatch({ type: EVENTS.CLOSE });
   };
 
-  const goBackToMenu = () => dispatch({ type: EVENTS.GO_BACK });
+  const goBackToMenu = () => {
+    // Step 1's Back (the only way LEAD_FORM reaches OPEN_MENU) is the
+    // natural "abandon and return to menu" path — reset the entry-step
+    // pointer here so the next fresh "Leave Project Details" entry starts
+    // at Step 1 instead of wherever a prior review Edit last targeted.
+    leadFormEntryStepRef.current = 1;
+    dispatch({ type: EVENTS.GO_BACK });
+  };
+
+  // Stage 6B-1G: the only view-layer wiring a review section's Edit action
+  // needs — set which step to reopen on, then reuse the existing
+  // EDIT_ANSWER event/transition unchanged (no reducer/payload change).
+  const editLeadFormSection = (targetStep) => {
+    leadFormEntryStepRef.current = targetStep;
+    dispatch({ type: EVENTS.EDIT_ANSWER });
+  };
 
   const liveMessage =
     state === STATES.OPEN_MENU
@@ -269,7 +501,13 @@ export default function AssistantWidget({ t }) {
           ? t.smartAssistant.leadForm.heading
           : state === STATES.SUMMARY
             ? t.smartAssistant.review.heading
-            : "";
+            : state === STATES.SUBMITTING
+              ? t.smartAssistant.review.submitting
+              : state === STATES.SUCCESS
+                ? t.smartAssistant.success.heading
+                : state === STATES.MANUAL_FALLBACK
+                  ? t.smartAssistant.manualFallback.heading
+                  : "";
 
   return (
     <>
@@ -352,14 +590,25 @@ export default function AssistantWidget({ t }) {
                   onChange={updateLeadField}
                   onValid={() => dispatch({ type: EVENTS.SHOW_SUMMARY })}
                   onBack={goBackToMenu}
+                  initialStep={leadFormEntryStepRef.current}
                 />
               )}
-              {state === STATES.SUMMARY && (
+              {(state === STATES.SUMMARY || state === STATES.SUBMITTING) && (
                 <ProjectLeadReview
                   t={t}
                   data={leadFormData}
-                  onEdit={() => dispatch({ type: EVENTS.EDIT_ANSWER })}
+                  onEditSection={editLeadFormSection}
                   onBack={goBackToMenu}
+                  onSubmit={submitLead}
+                  isSubmitting={state === STATES.SUBMITTING}
+                />
+              )}
+              {state === STATES.SUCCESS && <SuccessView t={t} onClose={closeDrawer} />}
+              {state === STATES.MANUAL_FALLBACK && (
+                <ManualFallbackView
+                  t={t}
+                  onTryAgain={submitLead}
+                  onEditDetails={() => dispatch({ type: EVENTS.EDIT_ANSWER })}
                 />
               )}
             </div>
