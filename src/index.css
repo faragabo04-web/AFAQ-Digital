@@ -5271,31 +5271,14 @@ main > .section + .section,
   border-top: 1px solid rgba(217, 228, 238, 0.78);
 }
 
-/* One shared outer panel joining both columns into a single premium
-   conversion component — dark navy left, light form right, no visible
-   seam between them. */
-.contact-panel {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(193, 206, 218, 0.18);
-  box-shadow: 0 24px 56px rgba(7, 24, 36, 0.16);
-}
-
 .section--contact .contact-grid {
   grid-template-columns: minmax(0, 0.94fr) minmax(340px, 0.82fr);
-  gap: 0;
-  align-items: stretch;
+  gap: clamp(28px, 4vw, 44px);
+  align-items: center;
 }
 
 .section--contact .contact-copy {
   margin-bottom: 0;
-  padding: 46px 42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(165deg, #0c2638 0%, #071824 100%);
-  color: var(--color-ice);
 }
 
 .section--contact h2 {
@@ -5303,7 +5286,6 @@ main > .section + .section,
   margin-bottom: 16px;
   font-size: clamp(3.35rem, 4.45vw, 3.875rem);
   line-height: 1.02;
-  color: var(--color-ice);
 }
 
 .section--contact .contact-copy p {
@@ -5311,74 +5293,64 @@ main > .section + .section,
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.65;
-  color: var(--color-light-text);
 }
 
-/* Compact contact rows with subtle separators — replacing three heavy
-   individual cards with one connected list. */
+/* Compact, individually-carded contact routes on the light canvas —
+   consistent height, restrained border/shadow, WhatsApp visually primary.
+   Each row is its own small card rather than one large shared panel. */
 .section--contact .contact-cards {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin-top: 26px;
-  border-top: 1px solid rgba(193, 206, 218, 0.14);
+  gap: 10px;
+  margin-top: 24px;
 }
 
 .section--contact .contact-cards a,
 [data-theme="light"] .section--contact .contact-cards a {
   --contact-channel: var(--color-cobalt);
-  --contact-channel-soft: rgba(37, 99, 235, 0.14);
+  --contact-channel-soft: rgba(37, 99, 235, 0.1);
   position: relative;
   display: grid;
   grid-template-columns: minmax(112px, 0.4fr) 1fr;
   align-items: center;
   gap: 3px 16px;
   min-height: auto;
-  padding: 15px 6px 15px 18px;
-  border: 0;
-  border-bottom: 1px solid rgba(193, 206, 218, 0.14);
-  border-radius: 0;
-  background: none;
-  color: var(--color-ice);
-  box-shadow: none;
+  padding: 14px 16px 14px 20px;
+  border: 1px solid var(--color-soft-border);
+  border-radius: 12px;
+  background: var(--color-white);
+  color: var(--color-dark-text);
+  box-shadow: 0 6px 16px rgba(16, 38, 58, 0.06);
   outline: 0;
-  transition: background 200ms ease, padding-inline-start 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
 .section--contact .contact-cards a::after {
   content: "";
   position: absolute;
-  inset-block: 13px;
+  inset-block: 12px;
   inset-inline-start: 0;
   width: 2px;
   border-radius: 2px;
   background: var(--contact-channel);
-  opacity: 0.65;
-  transition: opacity 200ms ease;
+  opacity: 0.7;
 }
 
-.section--contact .contact-cards a:last-child {
-  border-bottom: 0;
-}
-
-/* WhatsApp reads as the primary direct-contact route. */
+/* All three rows share the same border, radius, shadow, and background —
+   one unified card system. WhatsApp is distinguished only by its accent
+   bar color and a subtly larger value, not by a separate color block. */
 .section--contact .contact-cards a:nth-child(1) {
   --contact-channel: #25d366;
-  --contact-channel-soft: rgba(37, 211, 102, 0.13);
-  margin-bottom: 4px;
-  padding: 16px 14px 16px 22px;
-  border-bottom: 0;
-  border-radius: 12px;
-  background: rgba(37, 211, 102, 0.06);
+  --contact-channel-soft: rgba(37, 211, 102, 0.1);
 }
 
 .section--contact .contact-cards a:nth-child(1) strong {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
 }
 
 .section--contact .contact-cards a.contact-card--form {
   --contact-channel: var(--color-cobalt);
-  --contact-channel-soft: rgba(37, 99, 235, 0.14);
+  --contact-channel-soft: rgba(37, 99, 235, 0.1);
 }
 
 .section--contact .contact-cards a.contact-card--form em {
@@ -5386,8 +5358,8 @@ main > .section + .section,
 }
 
 .section--contact .contact-cards a:nth-child(3) {
-  --contact-channel: #0a66c2;
-  --contact-channel-soft: rgba(10, 102, 194, 0.13);
+  --contact-channel: var(--color-cobalt);
+  --contact-channel-soft: rgba(37, 99, 235, 0.1);
 }
 
 .section--contact .contact-cards a::before {
@@ -5397,7 +5369,7 @@ main > .section + .section,
 
 .section--contact .contact-cards span,
 [data-theme="light"] .section--contact .contact-cards span {
-  color: var(--color-light-text);
+  color: var(--color-muted-blue);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   transition: color 220ms ease;
@@ -5405,14 +5377,14 @@ main > .section + .section,
 
 .section--contact .contact-cards strong,
 [data-theme="light"] .section--contact .contact-cards strong {
-  color: var(--color-white);
+  color: var(--color-dark-text);
   font-size: 0.94rem;
   line-height: 1.35;
 }
 
 .section--contact .contact-card--form strong,
 [data-theme="light"] .section--contact .contact-card--form strong {
-  color: var(--color-light-text);
+  color: var(--color-muted-blue);
   font-size: 0.86rem;
   line-height: 1.45;
 }
@@ -5435,14 +5407,11 @@ main > .section + .section,
 
 .section--contact .contact-form,
 [data-theme="light"] .section--contact .contact-form {
-  padding: 42px 38px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 0;
-  border-radius: 0;
+  padding: 26px;
+  border-radius: 14px;
+  border-color: var(--color-soft-border);
   background: var(--color-white);
-  box-shadow: none;
+  box-shadow: 0 12px 28px rgba(16, 38, 58, 0.09);
 }
 
 .section--contact .contact-form::before {
@@ -5507,7 +5476,8 @@ main > .section + .section,
 
 .section--contact .contact-cards a:focus-visible {
   background: var(--contact-channel-soft);
-  padding-inline-start: 22px;
+  border-color: var(--contact-channel);
+  box-shadow: 0 8px 20px rgba(16, 38, 58, 0.1);
   outline: 2px solid var(--contact-channel);
   outline-offset: -2px;
 }
@@ -5528,7 +5498,8 @@ main > .section + .section,
 @media (hover: hover) and (pointer: fine) {
   .section--contact .contact-cards a:hover {
     background: var(--contact-channel-soft);
-    padding-inline-start: 22px;
+    border-color: var(--contact-channel);
+    box-shadow: 0 8px 20px rgba(16, 38, 58, 0.1);
   }
 
   .section--contact .contact-cards a:hover::after {
@@ -5725,11 +5696,7 @@ main > .section + .section,
   }
 
   .section--contact .contact-grid {
-    gap: 0;
-  }
-
-  .section--contact .contact-copy {
-    padding: 32px 24px 28px;
+    gap: 26px;
   }
 
   .section--contact h2 {
@@ -5866,22 +5833,26 @@ main > .section + .section,
   gap: var(--eco-gap);
   color: var(--color-ice);
   container-type: inline-size;
-  --eco-gap: 10px;
+  /* Deliberate clear space between the orbit stage (which the container-
+     query safety math already keeps every node inside) and the detail
+     panel below, so the panel never sits close enough to read as
+     colliding with a node or its hover-preview drawer. */
+  --eco-gap: 28px;
   --eco-detail-h: 84px;
   /* Widest collapsed node (Google & LinkedIn) drives the whole budget. */
-  --eco-node-max: clamp(100px, 36cqw, 136px);
-  /* 2*radius + node-max + 16px safety gap never exceeds the stage width. */
-  --eco-radius: clamp(70px, calc(50cqw - (var(--eco-node-max) / 2) - 8px), 114px);
-  --eco-core-size: calc(var(--eco-radius) * 1.35);
-  --eco-field-size: calc(var(--eco-radius) * 1.7);
-  /* Whole-module magnetic pull: nodes ease slightly toward the core on
-     hover/focus-within (never on a single node's own hover). */
-  --eco-pull: 0px;
-}
-
-.about-ecosystem:hover,
-.about-ecosystem:focus-within {
-  --eco-pull: 8px;
+  --eco-node-max: clamp(76px, 25.26cqw, 96px);
+  /* Node orbit radius (where every capsule's center sits). 2*radius +
+     node-max + 16px safety gap never exceeds the stage width. */
+  --eco-radius: clamp(82px, calc(50cqw - (var(--eco-node-max) / 2) - 8px), 134px);
+  /* The visible ring sits INSIDE the node orbit radius by half the widest
+     capsule plus a fixed 14px gap. Since every capsule's worst-case near
+     edge is exactly --eco-radius minus half its own width, this guarantees
+     a clear, angle-independent minimum gap between the ring and every
+     capsule at every orbital position — a true geometric orbit, not an
+     approximation. */
+  --eco-ring-radius: calc(var(--eco-radius) - (var(--eco-node-max) / 2) - 14px);
+  --eco-core-size: calc(var(--eco-ring-radius) * 1.5);
+  --eco-field-size: calc(var(--eco-ring-radius) * 2.1);
 }
 
 @media (min-width: 1061px) {
@@ -5965,47 +5936,31 @@ main > .section + .section,
   transform: translate(-50%, -50%);
 }
 
-/* One subtle outer ring, sized exactly at the node orbit radius. */
+/* One subtle outer ring — deliberately smaller than the node orbit radius
+   so every capsule clears it by a guaranteed minimum gap (see --eco-ring-radius). */
 .about-ecosystem .eco-ring--one {
-  width: calc(var(--eco-radius) * 2);
-  height: calc(var(--eco-radius) * 2);
+  width: calc(var(--eco-ring-radius) * 2);
+  height: calc(var(--eco-ring-radius) * 2);
   border: 1px solid rgba(148, 175, 201, 0.28);
   transition: border-color 260ms ease, box-shadow 260ms ease;
 }
 
 /* One refined blue/cyan accent ring, closer to the core. */
 .about-ecosystem .eco-ring--two {
-  width: calc(var(--eco-radius) * 1.3);
-  height: calc(var(--eco-radius) * 1.3);
+  width: calc(var(--eco-ring-radius) * 1.3);
+  height: calc(var(--eco-ring-radius) * 1.3);
   border: 1px dashed rgba(56, 189, 248, 0.24);
-}
-
-/* Small docking point per node — lives directly on .eco-node-slot (before
-   the upright counter-rotation), so it always sits exactly on the orbit
-   ring at the node's true position as the orbit turns. This is the single
-   shared connector treatment for all five nodes; no per-node hacks. */
-.about-ecosystem .eco-node-dock {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  border-radius: 50%;
-  background: var(--color-sky);
-  box-shadow: 0 0 7px rgba(56, 189, 248, 0.5);
-  pointer-events: none;
 }
 
 .about-ecosystem .eco-comet {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: calc(var(--eco-radius) * 2);
-  height: calc(var(--eco-radius) * 2);
+  width: calc(var(--eco-ring-radius) * 2);
+  height: calc(var(--eco-ring-radius) * 2);
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  animation: ecoRingSpin 70s linear infinite;
+  animation: ecoRingSpin 42s linear infinite;
 }
 
 .about-ecosystem .eco-comet::after {
@@ -6025,8 +5980,8 @@ main > .section + .section,
   position: absolute;
   top: 50%;
   left: 50%;
-  width: calc(var(--eco-radius) * 2 + 20px);
-  height: calc(var(--eco-radius) * 2 + 20px);
+  width: calc(var(--eco-ring-radius) * 2 + 20px);
+  height: calc(var(--eco-ring-radius) * 2 + 20px);
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: conic-gradient(
@@ -6063,7 +6018,7 @@ main > .section + .section,
     0 18px 40px rgba(4, 12, 20, 0.55),
     0 0 32px rgba(37, 99, 235, 0.2);
   animation: ecoCoreBreath 7s ease-in-out infinite;
-  transition: transform 260ms ease;
+  transition: border-color 260ms ease;
 }
 
 .about-ecosystem .eco-core:focus-visible {
@@ -6084,28 +6039,29 @@ main > .section + .section,
   object-fit: contain;
 }
 
-/* Whole-ecosystem hover/focus-within response — the module reacts as one
-   coordinated object. Independent of node hover/selection/activation:
-   it only touches the field, outer ring, connecting band, and core, never
-   .eco-node-inner, so a selected node's own gold state stays visually
-   stronger, and it never interacts with the [data-motion-paused] or
-   [data-activating] state machines. */
-.about-ecosystem:hover .eco-field,
-.about-ecosystem:focus-within .eco-field {
-  background:
-    radial-gradient(circle at 50% 38%, rgba(11, 52, 95, 0.95), rgba(7, 24, 36, 0.98) 78%);
-  box-shadow: 0 20px 46px rgba(4, 12, 20, 0.48);
+/* Restrained whole-ecosystem hover/focus-within response — the orbit
+   pauses and the ring/core read very slightly clearer. No scale, no
+   glow expansion, no field brightening. Independent of node hover/
+   selection/activation: it never touches .eco-node-inner, so a selected
+   node's own gold state stays visually stronger, and it never interacts
+   with the [data-activating] state machine. */
+.about-ecosystem:hover .eco-orbit,
+.about-ecosystem:focus-within .eco-orbit,
+.about-ecosystem:hover .eco-node-upright,
+.about-ecosystem:focus-within .eco-node-upright,
+.about-ecosystem:hover .eco-comet,
+.about-ecosystem:focus-within .eco-comet {
+  animation-play-state: paused;
 }
 
 .about-ecosystem:hover .eco-ring--one,
 .about-ecosystem:focus-within .eco-ring--one {
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.16);
+  border-color: rgba(148, 175, 201, 0.4);
 }
 
 .about-ecosystem:hover .eco-core,
 .about-ecosystem:focus-within .eco-core {
-  transform: translate(-50%, -50%) scale(1.03);
+  border-color: rgba(200, 166, 106, 0.55);
 }
 
 /* Rotating-parent / counter-rotating-child orbit — five nodes, always upright */
@@ -6116,15 +6072,17 @@ main > .section + .section,
   margin: 0;
   padding: 0;
   list-style: none;
-  animation: ecoOrbitSpin 110s linear infinite;
+  animation: ecoOrbitSpin 64s linear infinite;
 }
 
+/* --radius-nudge defaults to 0 for every node — the shared placement
+   formula stays the same one system for all five. Only the one node that
+   needs it (AI Automation) sets a small nonzero value below. */
 .about-ecosystem .eco-node-slot {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: rotate(var(--base-angle)) translateY(calc(-1 * (var(--eco-radius) - var(--eco-pull))));
-  transition: transform 280ms ease;
+  transform: rotate(var(--base-angle)) translateY(calc(-1 * (var(--eco-radius) - var(--radius-nudge, 0px))));
 }
 
 .about-ecosystem .eco-node-slot--1 {
@@ -6145,6 +6103,7 @@ main > .section + .section,
 .about-ecosystem .eco-node-slot--4 {
   --base-angle: 150deg;
   --illum-delay: 0.98s;
+  --radius-nudge: 10px;
 }
 
 .about-ecosystem .eco-node-slot--5 {
@@ -6156,7 +6115,7 @@ main > .section + .section,
 .about-ecosystem .eco-node-upright {
   display: block;
   transform: translate(-50%, -50%);
-  animation: ecoOrbitCounterSpin 110s linear infinite;
+  animation: ecoOrbitCounterSpin 64s linear infinite;
 }
 
 /* Non-interactive wrapper — owns pointer/focus engagement */
@@ -6211,16 +6170,16 @@ main > .section + .section,
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 38px;
+  min-height: 48px;
   width: 100%;
-  padding: 9px 14px;
-  padding-inline-start: 16px;
-  border: 1px solid rgba(193, 206, 218, 0.3);
+  padding: 9px 12px;
+  padding-inline-start: 14px;
+  border: 1px solid rgba(193, 206, 218, 0.26);
   border-radius: 10px;
   background: linear-gradient(180deg, rgba(12, 38, 56, 0.94), rgba(7, 24, 36, 0.9));
   box-shadow:
     inset 0 1px 0 rgba(247, 250, 252, 0.08),
-    0 7px 16px rgba(4, 12, 20, 0.28);
+    0 6px 14px rgba(4, 12, 20, 0.22);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, border-radius 0.2s ease;
   animation: ecoNodeDrift 9s ease-in-out infinite;
 }
@@ -6265,7 +6224,7 @@ main > .section + .section,
 }
 
 .about-ecosystem .eco-node-label {
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0.01em;
@@ -6297,6 +6256,11 @@ main > .section + .section,
     padding-top 0.22s ease, padding-bottom 0.22s ease;
 }
 
+/* Selection alone no longer keeps this local drawer open — the selected
+   node stays highlighted through its capsule styling only, and the
+   persistent panel below is the sole place for its title/slogan/CTA.
+   This preview remains purely a transient hover/focus affordance, so it
+   can never collide with the persistent panel for a selected node. */
 .about-ecosystem .eco-node:hover ~ .eco-node-slogan,
 .about-ecosystem .eco-node:focus-visible ~ .eco-node-slogan {
   grid-template-rows: 1fr;
@@ -6305,15 +6269,6 @@ main > .section + .section,
   padding-bottom: 8px;
   background: linear-gradient(180deg, rgba(12, 38, 56, 0.94), rgba(7, 24, 36, 0.9));
   border-color: rgba(56, 189, 248, 0.35);
-}
-
-.about-ecosystem .eco-node[aria-pressed="true"] ~ .eco-node-slogan {
-  grid-template-rows: 1fr;
-  opacity: 1;
-  padding-top: 4px;
-  padding-bottom: 8px;
-  background: linear-gradient(180deg, rgba(12, 38, 56, 0.94), rgba(7, 24, 36, 0.9));
-  border-color: rgba(200, 166, 106, 0.4);
 }
 
 /* Terminal states. Border-radius flattens on the bottom edge whenever the
@@ -6409,13 +6364,22 @@ main > .section + .section,
   padding: 10px 16px;
 }
 
+/* A small, controlled light surface — not a heavy card — so the selected
+   title/slogan/CTA read as one deliberate component with real contrast
+   against the light About canvas, instead of dark-theme text floating
+   directly on it. */
 .about-ecosystem .eco-detail-inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 6px 16px;
-  max-width: 100%;
+  max-width: min(360px, 100%);
+  padding: 10px 18px;
+  border: 1px solid rgba(200, 166, 106, 0.22);
+  border-radius: 12px;
+  background: var(--color-white);
+  box-shadow: 0 6px 16px rgba(16, 38, 58, 0.1);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
@@ -6436,13 +6400,13 @@ main > .section + .section,
 }
 
 .about-ecosystem .eco-detail-title {
-  color: var(--color-ice);
+  color: var(--color-dark-text);
   font-size: 0.92rem;
   font-weight: 800;
 }
 
 .about-ecosystem .eco-detail-slogan {
-  color: var(--color-light-text);
+  color: var(--color-muted-blue);
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -6455,21 +6419,28 @@ main > .section + .section,
 }
 
 .about-ecosystem .eco-detail-link {
-  color: var(--color-gold);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--color-cobalt);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 200ms ease, border-color 200ms ease;
 }
 
 .about-ecosystem .eco-detail-link:hover {
-  color: var(--color-ice);
+  background: rgba(37, 99, 235, 0.16);
+  border-color: rgba(37, 99, 235, 0.55);
 }
 
 .about-ecosystem .eco-detail-link:focus-visible {
   outline: 2px solid var(--color-sky);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 999px;
 }
 
 /* Visually hidden live region */
@@ -6642,11 +6613,6 @@ main > .section + .section,
     animation: none;
   }
 
-  .about-ecosystem:hover .eco-core,
-  .about-ecosystem:focus-within .eco-core {
-    transform: none;
-  }
-
   .about-ecosystem[data-activating] .eco-core {
     animation: ecoCorePulse 0.55s ease-out;
   }
@@ -6663,11 +6629,6 @@ main > .section + .section,
   .about-ecosystem .eco-node-slot {
     position: static;
     transform: none;
-    transition: none;
-  }
-
-  .about-ecosystem .eco-node-dock {
-    display: none;
   }
 
   .about-ecosystem .eco-node-slot--5 {
@@ -6730,13 +6691,9 @@ main > .section + .section,
 
   .about-ecosystem .eco-detail-link {
     min-height: 44px;
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
     padding: 0 16px;
-    border: 1px solid rgba(200, 166, 106, 0.4);
     border-radius: 10px;
-    text-decoration: none;
     flex: 1 1 130px;
   }
 }
@@ -6798,28 +6755,14 @@ main > .section + .section,
   .about-ecosystem .eco-node-inner,
   .about-ecosystem .eco-node-slogan,
   .about-ecosystem .eco-detail-inner,
-  .about-ecosystem .eco-field,
   .about-ecosystem .eco-ring--one,
-  .about-ecosystem .eco-node-slot {
+  .about-ecosystem .eco-core {
     transition: none;
-  }
-
-  /* No magnetic pull toward the core under reduced motion. */
-  .about-ecosystem:hover,
-  .about-ecosystem:focus-within {
-    --eco-pull: 0px;
   }
 
   .about-ecosystem .eco-node:hover .eco-node-lift,
   .about-ecosystem .eco-node:focus-visible .eco-node-lift,
   .about-ecosystem .eco-node:active .eco-node-lift {
     transform: none;
-  }
-
-  /* Whole-ecosystem hover/focus still applies (retain a clean static
-     state) but without the core's scale lift or animated transition. */
-  .about-ecosystem:hover .eco-core,
-  .about-ecosystem:focus-within .eco-core {
-    transform: translate(-50%, -50%);
   }
 }

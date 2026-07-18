@@ -87,10 +87,8 @@ export default function Contact({ t }) {
 
   return (
     <section className="section section--contact" id="contact">
-      <div className="shell">
-      <div className="contact-panel reveal">
-      <div className="contact-grid">
-        <div className="contact-copy">
+      <div className="shell contact-grid">
+        <div className="contact-copy reveal">
           <span className="section-kicker">{t.contact.eyebrow}</span>
           <h2>{t.contact.title}</h2>
           <p>{t.contact.description}</p>
@@ -111,7 +109,7 @@ export default function Contact({ t }) {
           </div>
         </div>
 
-        <form className="contact-form" onSubmit={onSubmit} noValidate>
+        <form className="contact-form reveal" onSubmit={onSubmit} noValidate>
           <div className="form-row">
             <label>
               <span>{t.contact.fields.name}</span>
@@ -154,8 +152,6 @@ export default function Contact({ t }) {
           </div>
           <input type="hidden" name="whatsapp_direct" value={WHATSAPP_URL} />
         </form>
-      </div>
-      </div>
       </div>
     </section>
   );

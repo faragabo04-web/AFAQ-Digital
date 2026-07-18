@@ -79,7 +79,6 @@ export default function AboutEcosystem({ t }) {
             const slogId = `eco-slogan-${service.id}`;
             return (
               <li className={`eco-node-slot eco-node-slot--${index + 1}`} key={service.id}>
-                <span className="eco-node-dock" aria-hidden="true" />
                 <div className="eco-node-upright">
                   <div
                     className="eco-node-engage"
