@@ -159,12 +159,6 @@ export default function AssistantWidget({ t }) {
   // resolve in the background against a widget that has moved on.
   const activeControllerRef = useRef(null);
   const activeTimeoutRef = useRef(null);
-  // Stage 6B-1G: view-layer only — which internal ProjectLeadForm step to
-  // seed on the next LEAD_FORM mount. Defaults to 1 (fresh entry from the
-  // menu/teaser); a review section's Edit action sets it just before
-  // dispatching EDIT_ANSWER so the form reopens on the relevant step. Never
-  // read by assistantMachine.js — the reducer still only knows LEAD_FORM.
-  const leadFormEntryStepRef = useRef(1);
 
   const isDrawerOpen = DRAWER_STATES.has(state);
 
@@ -206,7 +200,12 @@ export default function AssistantWidget({ t }) {
 
     const controller = new AbortController();
     activeControllerRef.current = controller;
-    const timeoutId = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
+    // Stage 7A: an explicit abort reason distinguishes a user closing the
+    // drawer (already fully handled synchronously by closeDrawer — the
+    // catch below must no-op) from the automatic timeout firing while the
+    // drawer is still open (nothing else has cleaned up — the catch below
+    // must treat it as a real failure, same as any other one).
+    const timeoutId = window.setTimeout(() => controller.abort("automatic_timeout_abort"), SUBMIT_TIMEOUT_MS);
     activeTimeoutRef.current = timeoutId;
 
     try {
@@ -270,13 +269,16 @@ export default function AssistantWidget({ t }) {
       activeControllerRef.current = null;
       dispatch({ type: EVENTS.SUBMIT_SUCCESS });
     } catch {
-      // Timeout/abort, network error, non-2xx, malformed JSON, or
-      // success !== true all land here. No raw error/response is ever
-      // surfaced to the visitor or logged — leadFormData/leadId untouched.
-      // An abort caused by closeDrawer is already fully handled there
-      // (ref unlocked, controller/timeout cleared) — skip re-dispatching
-      // SUBMIT_FAILURE for a request that's no longer the active one.
-      if (controller.signal.aborted) return;
+      // Network error, non-2xx, malformed JSON, success !== true, and an
+      // automatic timeout abort all land here and must recover the same
+      // way: unlock the submit guard, preserve leadFormData/leadId
+      // untouched, and route to MANUAL_FALLBACK. Only a user-initiated
+      // abort (closeDrawer, tagged with this exact reason) is already
+      // fully handled synchronously there — skip re-dispatching for a
+      // request that's no longer the active one. Checking the reason
+      // string (not just .aborted, which is also true for the timeout
+      // case) is what fixes the Stage 7A stuck-in-SUBMITTING bug.
+      if (controller.signal.aborted && controller.signal.reason === "user_initiated_abort") return;
       isSubmittingRef.current = false;
       activeControllerRef.current = null;
       dispatch({ type: EVENTS.SUBMIT_FAILURE });
@@ -301,7 +303,7 @@ export default function AssistantWidget({ t }) {
   useEffect(() => {
     if (state !== STATES.IDLE) return;
     if (activeControllerRef.current) {
-      activeControllerRef.current.abort();
+      activeControllerRef.current.abort("user_initiated_abort");
       activeControllerRef.current = null;
     }
     if (activeTimeoutRef.current) {
@@ -310,7 +312,6 @@ export default function AssistantWidget({ t }) {
     }
     isSubmittingRef.current = false;
     leadIdRef.current = null;
-    leadFormEntryStepRef.current = 1;
     setLeadFormData(EMPTY_LEAD_FORM);
   }, [state]);
 
@@ -455,10 +456,11 @@ export default function AssistantWidget({ t }) {
     // If a request is still in flight, abort it first — clearing the
     // timeout and unlocking isSubmittingRef only after the abort — so the
     // abandoned request can never later dispatch SUBMIT_SUCCESS/FAILURE
-    // against a widget that has moved on (guarded again in submitLead via
-    // controller.signal.aborted).
+    // against a widget that has moved on. Tagged "user_initiated_abort" so
+    // submitLead's catch can tell this apart from its own automatic
+    // timeout abort (Stage 7A fix) and no-op instead of re-dispatching.
     if (activeControllerRef.current) {
-      activeControllerRef.current.abort();
+      activeControllerRef.current.abort("user_initiated_abort");
       activeControllerRef.current = null;
     }
     if (activeTimeoutRef.current) {
@@ -475,22 +477,7 @@ export default function AssistantWidget({ t }) {
     dispatch({ type: EVENTS.CLOSE });
   };
 
-  const goBackToMenu = () => {
-    // Step 1's Back (the only way LEAD_FORM reaches OPEN_MENU) is the
-    // natural "abandon and return to menu" path — reset the entry-step
-    // pointer here so the next fresh "Leave Project Details" entry starts
-    // at Step 1 instead of wherever a prior review Edit last targeted.
-    leadFormEntryStepRef.current = 1;
-    dispatch({ type: EVENTS.GO_BACK });
-  };
-
-  // Stage 6B-1G: the only view-layer wiring a review section's Edit action
-  // needs — set which step to reopen on, then reuse the existing
-  // EDIT_ANSWER event/transition unchanged (no reducer/payload change).
-  const editLeadFormSection = (targetStep) => {
-    leadFormEntryStepRef.current = targetStep;
-    dispatch({ type: EVENTS.EDIT_ANSWER });
-  };
+  const goBackToMenu = () => dispatch({ type: EVENTS.GO_BACK });
 
   const liveMessage =
     state === STATES.OPEN_MENU
@@ -590,14 +577,13 @@ export default function AssistantWidget({ t }) {
                   onChange={updateLeadField}
                   onValid={() => dispatch({ type: EVENTS.SHOW_SUMMARY })}
                   onBack={goBackToMenu}
-                  initialStep={leadFormEntryStepRef.current}
                 />
               )}
               {(state === STATES.SUMMARY || state === STATES.SUBMITTING) && (
                 <ProjectLeadReview
                   t={t}
                   data={leadFormData}
-                  onEditSection={editLeadFormSection}
+                  onEdit={() => dispatch({ type: EVENTS.EDIT_ANSWER })}
                   onBack={goBackToMenu}
                   onSubmit={submitLead}
                   isSubmitting={state === STATES.SUBMITTING}

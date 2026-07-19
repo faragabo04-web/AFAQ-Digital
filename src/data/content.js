@@ -525,16 +525,18 @@ export const content = {
           businessName: "Business Name (Optional)",
           serviceNeeded: "Service Needed",
           primaryGoal: "Primary Project Goal",
-          projectDetails: "Project Details",
-          preferredStart: "Preferred Start"
+          projectDetails: "Short Project Brief",
+          preferredStart: "Preferred Start (Optional)"
         },
         placeholders: {
           fullName: "Your full name",
           whatsappNumber: "Example: +971 50 000 0000",
           businessName: "Your business or brand name",
-          projectDetails: "Briefly describe what you need, the main features and any important requirements."
+          projectDetails: "A few sentences about what you need."
         },
         selectPlaceholder: "Select an option",
+        serviceSelectPlaceholder: "Select a service",
+        startSelectPlaceholder: "Not selected",
         serviceOptions: {
           premium_websites: "Premium Website",
           ecommerce: "E-Commerce Store",
@@ -560,7 +562,7 @@ export const content = {
           exploring: "I’m still exploring"
         },
         consent: "I agree that Team AFAQ may contact me regarding this project request.",
-        submit: "Review Project Details",
+        submit: "Review Project Request",
         back: "Back to Main Options",
         errors: {
           fullName: "Please enter your full name.",
@@ -582,7 +584,7 @@ export const content = {
           businessName: "Business Name",
           serviceNeeded: "Service Needed",
           primaryGoal: "Primary Project Goal",
-          projectDetails: "Project Details",
+          projectDetails: "Short Project Brief",
           preferredStart: "Preferred Start",
           contactConsent: "Contact Consent"
         },
@@ -1128,16 +1130,18 @@ export const content = {
           businessName: "اسم النشاط (اختياري)",
           serviceNeeded: "الخدمة المطلوبة",
           primaryGoal: "الهدف الأساسي للمشروع",
-          projectDetails: "تفاصيل المشروع",
-          preferredStart: "موعد البدء المتوقع"
+          projectDetails: "موجز المشروع",
+          preferredStart: "موعد البدء المتوقع (اختياري)"
         },
         placeholders: {
           fullName: "اكتب اسمك الكامل",
           whatsappNumber: "مثال: +971 50 000 0000",
           businessName: "اسم النشاط أو العلامة التجارية",
-          projectDetails: "اشرح باختصار ما تحتاجه، والخصائص الأساسية، وأي متطلبات مهمة."
+          projectDetails: "بضع جمل عمّا تحتاجه."
         },
         selectPlaceholder: "اختر خيارًا",
+        serviceSelectPlaceholder: "اختر الخدمة المطلوبة",
+        startSelectPlaceholder: "لم يتم التحديد",
         serviceOptions: {
           premium_websites: "موقع إلكتروني احترافي",
           ecommerce: "متجر إلكتروني",
@@ -1163,7 +1167,7 @@ export const content = {
           exploring: "ما زلت أستكشف الخيارات"
         },
         consent: "أوافق على تواصل فريق AFAQ معي بخصوص طلب المشروع.",
-        submit: "راجع تفاصيل مشروعك",
+        submit: "راجع طلب مشروعك",
         back: "العودة إلى الخيارات الرئيسية",
         errors: {
           fullName: "يرجى إدخال اسمك الكامل.",
@@ -1185,7 +1189,7 @@ export const content = {
           businessName: "اسم النشاط",
           serviceNeeded: "الخدمة المطلوبة",
           primaryGoal: "الهدف الأساسي للمشروع",
-          projectDetails: "تفاصيل المشروع",
+          projectDetails: "موجز المشروع",
           preferredStart: "موعد البدء المتوقع",
           contactConsent: "موافقة التواصل"
         },

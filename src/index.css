@@ -7654,7 +7654,7 @@ body.smart-assistant-open .whatsapp-float {
   }
 
   .sa-lead__nav {
-    padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
+    padding-top: 12px;
   }
 }
 
@@ -7808,17 +7808,17 @@ body.smart-assistant-open .whatsapp-float {
   gap: 16px;
 }
 
-/* Sticky step-navigation bar. position: sticky (never fixed) inside the
-   already-scrollable .sa-drawer__body — stays reachable without covering
-   the last field, and without a second nested scroll region. */
+/* Stage 7A-2: plain document flow, not sticky/fixed — a sticky element
+   still reserves its box at its natural position while painting itself at
+   the clamped position during scroll, which was overlapping field content
+   underneath it. Sitting at the natural end of the form after
+   .sa-lead__fields guarantees every field, error and the actions
+   themselves can always be scrolled fully into view with no overlap. */
 .sa-lead__nav {
-  position: sticky;
-  bottom: 0;
   display: flex;
   gap: 10px;
   margin-top: 20px;
-  padding: 14px 0 4px;
-  background: linear-gradient(180deg, rgba(250, 247, 241, 0) 0%, #faf7f1 28%);
+  padding-top: 14px;
   border-top: 1px solid var(--color-soft-border);
 }
 

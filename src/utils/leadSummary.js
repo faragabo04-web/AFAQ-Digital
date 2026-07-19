@@ -13,19 +13,35 @@ const resolveOptionLabel = (field, data, optionLabels) => {
   return raw;
 };
 
+// Stage 7A: the direct-intake form no longer collects Primary Project Goal,
+// and Business Name / Preferred Start are optional — so this list is
+// filtered to fields that actually have a value rather than printing a
+// blank "Field: —" line for each one.
+const OPTIONAL_FIELDS = new Set([
+  LEAD_FORM_FIELDS.BUSINESS_NAME,
+  LEAD_FORM_FIELDS.PRIMARY_GOAL,
+  LEAD_FORM_FIELDS.PREFERRED_START
+]);
+
 // fieldLabels: t.smartAssistant.review.labels (localized row labels).
 // optionLabels: t.smartAssistant.leadForm (serviceOptions/goalOptions/startOptions).
 export function buildLeadSummary({ data, leadId, lang, sourceChannel, fieldLabels, optionLabels }) {
   const line = (field) => `${fieldLabels[field]}: ${resolveOptionLabel(field, data, optionLabels)}`;
 
+  const fieldLines = [
+    LEAD_FORM_FIELDS.FULL_NAME,
+    LEAD_FORM_FIELDS.WHATSAPP_NUMBER,
+    LEAD_FORM_FIELDS.BUSINESS_NAME,
+    LEAD_FORM_FIELDS.SERVICE_NEEDED,
+    LEAD_FORM_FIELDS.PRIMARY_GOAL,
+    LEAD_FORM_FIELDS.PROJECT_DETAILS,
+    LEAD_FORM_FIELDS.PREFERRED_START
+  ]
+    .filter((field) => !OPTIONAL_FIELDS.has(field) || data[field])
+    .map(line);
+
   const lines = [
-    line(LEAD_FORM_FIELDS.FULL_NAME),
-    line(LEAD_FORM_FIELDS.WHATSAPP_NUMBER),
-    line(LEAD_FORM_FIELDS.BUSINESS_NAME),
-    line(LEAD_FORM_FIELDS.SERVICE_NEEDED),
-    line(LEAD_FORM_FIELDS.PRIMARY_GOAL),
-    line(LEAD_FORM_FIELDS.PROJECT_DETAILS),
-    line(LEAD_FORM_FIELDS.PREFERRED_START),
+    ...fieldLines,
     `${fieldLabels[LEAD_FORM_FIELDS.CONTACT_CONSENT]}: ${data[LEAD_FORM_FIELDS.CONTACT_CONSENT] ? "Confirmed" : "Not confirmed"}`,
     `Lead ID: ${leadId}`,
     `Language: ${lang}`,
